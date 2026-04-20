@@ -1,0 +1,46 @@
+sed --in-place 's/13px/9px/g' ultramarine.sed
+sed --in-place 's/14px/10px/g' ultramarine.sed
+cp -f template.css ultramarine-small.css
+sed --in-place -f ultramarine.sed ultramarine-small.css 
+
+sed --in-place 's/9px/11px/g' ultramarine.sed
+sed --in-place 's/10px/12px/g' ultramarine.sed
+cp -f template.css ultramarine.css
+sed --in-place -f ultramarine.sed ultramarine.css
+
+sed --in-place 's/11px/13px/g' ultramarine.sed
+sed --in-place 's/12px/14px/g' ultramarine.sed
+cp -f template.css ultramarine-large.css
+sed --in-place -f ultramarine.sed ultramarine-large.css
+
+#----------------------------------------------
+sed --in-place 's/13px/9px/g' grey.sed
+sed --in-place 's/14px/10px/g' grey.sed
+cp -f template.css grey-small.css
+sed --in-place -f grey.sed grey-small.css
+
+sed --in-place 's/9px/11px/g' grey.sed
+sed --in-place 's/10px/12px/g' grey.sed
+cp -f template.css grey.css
+sed --in-place -f grey.sed grey.css
+
+sed --in-place 's/11px/13px/g' grey.sed
+sed --in-place 's/12px/14px/g' grey.sed
+cp -f template.css grey-large.css
+sed --in-place -f grey.sed grey-large.css
+
+#----------------------------------------------
+sed --in-place 's/13px/9px/g' midnight.sed
+sed --in-place 's/14px/10px/g' midnight.sed
+cp -f template.css midnight-small.css
+sed --in-place -f  midnight.sed midnight-small.css
+
+sed --in-place 's/9px/11px/g' midnight.sed
+sed --in-place 's/10px/12px/g' midnight.sed
+cp -f template.css midnight.css
+sed --in-place -f  midnight.sed midnight.css
+
+sed --in-place 's/11px/13px/g' midnight.sed
+sed --in-place 's/12px/14px/g' midnight.sed
+cp -f template.css midnight-large.css 
+sed --in-place -f  midnight.sed midnight-large.css

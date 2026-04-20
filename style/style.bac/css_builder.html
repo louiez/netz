@@ -1,0 +1,318 @@
+<html>
+<head>
+<title> title </title>
+
+<script type="text/javascript">
+var activeElement;
+var x;
+function handleEvent(oEvent,tag) {
+	if (oEvent.type == "mouseup"){
+x=document.getElementById('properties');
+x.style.display="block";
+activeElement=tag;
+	}
+    }
+function colorsAll(colorhex){
+	ae=document.getElementById(activeElement);
+	ae.style.backGroundColor="#"+colorhex;
+x.style.display="none";	
+}
+</script>
+<style>
+td.colorchart
+{
+   width:16px;
+   height:12px;
+}
+
+</style>
+</head>
+<body>
+
+<br><br>
+	<fieldset onmouseup="handleEvent(event,this.id)" id="fieldset" style="border : 1px solid #000;">
+		<legend onmouseup="handleEvent(event,this.id)" id="legend" style="border : 1px solid #000;">
+			this is a Legend
+		</legend>
+		FieldSet
+	</fieldset>
+
+<br>
+<br><form>
+	<input onmouseup="handleEvent(event,this.id)"  type="text" id="textbox" value="text box">
+<br>
+	<input onmouseup="handleEvent(event,this.id)"  type="radio" id="radiobutton"> Radio button
+<br>
+	<input onmouseup="handleEvent(event,this.id)"  type="checkbox" id="checkbox"> Check box
+
+</form>
+<div id="properties" style="display:none">
+<table cellspacing="1" cellpadding="0" style="margin-top:6px;margin-bottom:0px;background-color:#444444;">
+<tr>
+<td class="colorchart" style="background-color:#330000" onClick="colorsAll('330000')" title="330000"></td>
+<td class="colorchart" style="background-color:#333300" onClick="colorsAll('333300')" title="333300"></td>
+<td class="colorchart" style="background-color:#336600" onClick="colorsAll('336600')" title="336600"></td>
+<td class="colorchart" style="background-color:#339900" onClick="colorsAll('339900')" title="339900"></td>
+<td class="colorchart" style="background-color:#33CC00" onClick="colorsAll('33CC00')" title="33CC00"></td>
+
+<td class="colorchart" style="background-color:#33FF00" onClick="colorsAll('33FF00')" title="33FF00"></td>
+<td class="colorchart" style="background-color:#66FF00" onClick="colorsAll('66FF00')" title="66FF00"></td>
+<td class="colorchart" style="background-color:#66CC00" onClick="colorsAll('66CC00')" title="66CC00"></td>
+<td class="colorchart" style="background-color:#669900" onClick="colorsAll('669900')" title="669900"></td>
+<td class="colorchart" style="background-color:#666600" onClick="colorsAll('666600')" title="666600"></td>
+<td class="colorchart" style="background-color:#663300" onClick="colorsAll('663300')" title="663300"></td>
+<td class="colorchart" style="background-color:#660000" onClick="colorsAll('660000')" title="660000"></td>
+<td class="colorchart" style="background-color:#FF0000" onClick="colorsAll('FF0000')" title="FF0000"></td>
+<td class="colorchart" style="background-color:#FF3300" onClick="colorsAll('FF3300')" title="FF3300"></td>
+<td class="colorchart" style="background-color:#FF6600" onClick="colorsAll('FF6600')" title="FF6600"></td>
+<td class="colorchart" style="background-color:#FF9900" onClick="colorsAll('FF9900')" title="FF9900"></td>
+<td class="colorchart" style="background-color:#FFCC00" onClick="colorsAll('FFCC00')" title="FFCC00"></td>
+<td class="colorchart" style="background-color:#FFFF00" onClick="colorsAll('FFFF00')" title="FFFF00"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#330033" onClick="colorsAll('330033')" title="330033"></td>
+<td class="colorchart" style="background-color:#333333" onClick="colorsAll('333333')" title="333333"></td>
+<td class="colorchart" style="background-color:#336633" onClick="colorsAll('336633')" title="336633"></td>
+
+<td class="colorchart" style="background-color:#339933" onClick="colorsAll('339933')" title="339933"></td>
+<td class="colorchart" style="background-color:#33CC33" onClick="colorsAll('33CC33')" title="33CC33"></td>
+<td class="colorchart" style="background-color:#33FF33" onClick="colorsAll('33FF33')" title="33FF33"></td>
+<td class="colorchart" style="background-color:#66FF33" onClick="colorsAll('66FF33')" title="66FF33"></td>
+<td class="colorchart" style="background-color:#66CC33" onClick="colorsAll('66CC33')" title="66CC33"></td>
+<td class="colorchart" style="background-color:#669933" onClick="colorsAll('669933')" title="669933"></td>
+<td class="colorchart" style="background-color:#666633" onClick="colorsAll('666633')" title="666633"></td>
+<td class="colorchart" style="background-color:#663333" onClick="colorsAll('663333')" title="663333"></td>
+<td class="colorchart" style="background-color:#660033" onClick="colorsAll('660033')" title="660033"></td>
+<td class="colorchart" style="background-color:#FF0033" onClick="colorsAll('FF0033')" title="FF0033"></td>
+<td class="colorchart" style="background-color:#FF3333" onClick="colorsAll('FF3333')" title="FF3333"></td>
+<td class="colorchart" style="background-color:#FF6633" onClick="colorsAll('FF6633')" title="FF6633"></td>
+<td class="colorchart" style="background-color:#FF9933" onClick="colorsAll('FF9933')" title="FF9933"></td>
+<td class="colorchart" style="background-color:#FFCC33" onClick="colorsAll('FFCC33')" title="FFCC33"></td>
+<td class="colorchart" style="background-color:#FFFF33" onClick="colorsAll('FFFF33')" title="FFFF33"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#330066" onClick="colorsAll('330066')" title="330066"></td>
+
+<td class="colorchart" style="background-color:#333366" onClick="colorsAll('333366')" title="333366"></td>
+<td class="colorchart" style="background-color:#336666" onClick="colorsAll('336666')" title="336666"></td>
+<td class="colorchart" style="background-color:#339966" onClick="colorsAll('339966')" title="339966"></td>
+<td class="colorchart" style="background-color:#33CC66" onClick="colorsAll('33CC66')" title="33CC66"></td>
+<td class="colorchart" style="background-color:#33FF66" onClick="colorsAll('33FF66')" title="33FF66"></td>
+<td class="colorchart" style="background-color:#66FF66" onClick="colorsAll('66FF66')" title="66FF66"></td>
+<td class="colorchart" style="background-color:#66CC66" onClick="colorsAll('66CC66')" title="66CC66"></td>
+<td class="colorchart" style="background-color:#669966" onClick="colorsAll('669966')" title="669966"></td>
+<td class="colorchart" style="background-color:#666666" onClick="colorsAll('666666')" title="666666"></td>
+<td class="colorchart" style="background-color:#663366" onClick="colorsAll('663366')" title="663366"></td>
+<td class="colorchart" style="background-color:#660066" onClick="colorsAll('660066')" title="660066"></td>
+<td class="colorchart" style="background-color:#FF0066" onClick="colorsAll('FF0066')" title="FF0066"></td>
+<td class="colorchart" style="background-color:#FF3366" onClick="colorsAll('FF3366')" title="FF3366"></td>
+<td class="colorchart" style="background-color:#FF6666" onClick="colorsAll('FF6666')" title="FF6666"></td>
+<td class="colorchart" style="background-color:#FF9966" onClick="colorsAll('FF9966')" title="FF9966"></td>
+<td class="colorchart" style="background-color:#FFCC66" onClick="colorsAll('FFCC66')" title="FFCC66"></td>
+<td class="colorchart" style="background-color:#FFFF66" onClick="colorsAll('FFFF66')" title="FFFF66"></td>
+
+</tr><tr>
+<td class="colorchart" style="background-color:#330099" onClick="colorsAll('330099')" title="330099"></td>
+<td class="colorchart" style="background-color:#333399" onClick="colorsAll('333399')" title="333399"></td>
+<td class="colorchart" style="background-color:#336699" onClick="colorsAll('336699')" title="336699"></td>
+<td class="colorchart" style="background-color:#339999" onClick="colorsAll('339999')" title="339999"></td>
+<td class="colorchart" style="background-color:#33CC99" onClick="colorsAll('33CC99')" title="33CC99"></td>
+<td class="colorchart" style="background-color:#33FF99" onClick="colorsAll('33FF99')" title="33FF99"></td>
+<td class="colorchart" style="background-color:#66FF99" onClick="colorsAll('66FF99')" title="66FF99"></td>
+<td class="colorchart" style="background-color:#66CC99" onClick="colorsAll('66CC99')" title="66CC99"></td>
+<td class="colorchart" style="background-color:#669999" onClick="colorsAll('669999')" title="669999"></td>
+<td class="colorchart" style="background-color:#666699" onClick="colorsAll('666699')" title="666699"></td>
+<td class="colorchart" style="background-color:#663399" onClick="colorsAll('663399')" title="663399"></td>
+<td class="colorchart" style="background-color:#660099" onClick="colorsAll('660099')" title="660099"></td>
+<td class="colorchart" style="background-color:#FF0099" onClick="colorsAll('FF0099')" title="FF0099"></td>
+<td class="colorchart" style="background-color:#FF3399" onClick="colorsAll('FF3399')" title="FF3399"></td>
+<td class="colorchart" style="background-color:#FF6699" onClick="colorsAll('FF6699')" title="FF6699"></td>
+<td class="colorchart" style="background-color:#FF9999" onClick="colorsAll('FF9999')" title="FF9999"></td>
+
+<td class="colorchart" style="background-color:#FFCC99" onClick="colorsAll('FFCC99')" title="FFCC99"></td>
+<td class="colorchart" style="background-color:#FFFF99" onClick="colorsAll('FFFF99')" title="FFFF99"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#3300CC" onClick="colorsAll('3300CC')" title="3300CC"></td>
+<td class="colorchart" style="background-color:#3333CC" onClick="colorsAll('3333CC')" title="3333CC"></td>
+<td class="colorchart" style="background-color:#3366CC" onClick="colorsAll('3366CC')" title="3366CC"></td>
+<td class="colorchart" style="background-color:#3399CC" onClick="colorsAll('3399CC')" title="3399CC"></td>
+<td class="colorchart" style="background-color:#33CCCC" onClick="colorsAll('33CCCC')" title="33CCCC"></td>
+<td class="colorchart" style="background-color:#33FFCC" onClick="colorsAll('33FFCC')" title="33FFCC"></td>
+<td class="colorchart" style="background-color:#66FFCC" onClick="colorsAll('66FFCC')" title="66FFCC"></td>
+<td class="colorchart" style="background-color:#66CCCC" onClick="colorsAll('66CCCC')" title="66CCCC"></td>
+<td class="colorchart" style="background-color:#6699CC" onClick="colorsAll('6699CC')" title="6699CC"></td>
+<td class="colorchart" style="background-color:#6666CC" onClick="colorsAll('6666CC')" title="6666CC"></td>
+<td class="colorchart" style="background-color:#6633CC" onClick="colorsAll('6633CC')" title="6633CC"></td>
+<td class="colorchart" style="background-color:#6600CC" onClick="colorsAll('6600CC')" title="6600CC"></td>
+<td class="colorchart" style="background-color:#FF00CC" onClick="colorsAll('FF00CC')" title="FF00CC"></td>
+<td class="colorchart" style="background-color:#FF33CC" onClick="colorsAll('FF33CC')" title="FF33CC"></td>
+
+<td class="colorchart" style="background-color:#FF66CC" onClick="colorsAll('FF66CC')" title="FF66CC"></td>
+<td class="colorchart" style="background-color:#FF99CC" onClick="colorsAll('FF99CC')" title="FF99CC"></td>
+<td class="colorchart" style="background-color:#FFCCCC" onClick="colorsAll('FFCCCC')" title="FFCCCC"></td>
+<td class="colorchart" style="background-color:#FFFFCC" onClick="colorsAll('FFFFCC')" title="FFFFCC"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#3300FF" onClick="colorsAll('3300FF')" title="3300FF"></td>
+<td class="colorchart" style="background-color:#3333FF" onClick="colorsAll('3333FF')" title="3333FF"></td>
+<td class="colorchart" style="background-color:#3366FF" onClick="colorsAll('3366FF')" title="3366FF"></td>
+<td class="colorchart" style="background-color:#3399FF" onClick="colorsAll('3399FF')" title="3399FF"></td>
+<td class="colorchart" style="background-color:#33CCFF" onClick="colorsAll('33CCFF')" title="33CCFF"></td>
+<td class="colorchart" style="background-color:#33FFFF" onClick="colorsAll('33FFFF')" title="33FFFF"></td>
+<td class="colorchart" style="background-color:#66FFFF" onClick="colorsAll('66FFFF')" title="66FFFF"></td>
+<td class="colorchart" style="background-color:#66CCFF" onClick="colorsAll('66CCFF')" title="66CCFF"></td>
+<td class="colorchart" style="background-color:#6699FF" onClick="colorsAll('6699FF')" title="6699FF"></td>
+<td class="colorchart" style="background-color:#6666FF" onClick="colorsAll('6666FF')" title="6666FF"></td>
+<td class="colorchart" style="background-color:#6633FF" onClick="colorsAll('6633FF')" title="6633FF"></td>
+<td class="colorchart" style="background-color:#6600FF" onClick="colorsAll('6600FF')" title="6600FF"></td>
+
+<td class="colorchart" style="background-color:#FF00FF" onClick="colorsAll('FF00FF')" title="FF00FF"></td>
+<td class="colorchart" style="background-color:#FF33FF" onClick="colorsAll('FF33FF')" title="FF33FF"></td>
+<td class="colorchart" style="background-color:#FF66FF" onClick="colorsAll('FF66FF')" title="FF66FF"></td>
+<td class="colorchart" style="background-color:#FF99FF" onClick="colorsAll('FF99FF')" title="FF99FF"></td>
+<td class="colorchart" style="background-color:#FFCCFF" onClick="colorsAll('FFCCFF')" title="FFCCFF"></td>
+<td class="colorchart" style="background-color:#FFFFFF" onClick="colorsAll('FFFFFF')" title="FFFFFF"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#0000FF" onClick="colorsAll('0000FF')" title="0000FF"></td>
+<td class="colorchart" style="background-color:#0033FF" onClick="colorsAll('0033FF')" title="0033FF"></td>
+<td class="colorchart" style="background-color:#0066FF" onClick="colorsAll('0066FF')" title="0066FF"></td>
+<td class="colorchart" style="background-color:#0099FF" onClick="colorsAll('0099FF')" title="0099FF"></td>
+<td class="colorchart" style="background-color:#00CCFF" onClick="colorsAll('00CCFF')" title="00CCFF"></td>
+<td class="colorchart" style="background-color:#00FFFF" onClick="colorsAll('00FFFF')" title="00FFFF"></td>
+<td class="colorchart" style="background-color:#99FFFF" onClick="colorsAll('99FFFF')" title="99FFFF"></td>
+<td class="colorchart" style="background-color:#99CCFF" onClick="colorsAll('99CCFF')" title="99CCFF"></td>
+<td class="colorchart" style="background-color:#9999FF" onClick="colorsAll('9999FF')" title="9999FF"></td>
+<td class="colorchart" style="background-color:#9966FF" onClick="colorsAll('9966FF')" title="9966FF"></td>
+
+<td class="colorchart" style="background-color:#9933FF" onClick="colorsAll('9933FF')" title="9933FF"></td>
+<td class="colorchart" style="background-color:#9900FF" onClick="colorsAll('9900FF')" title="9900FF"></td>
+<td class="colorchart" style="background-color:#CC00FF" onClick="colorsAll('CC00FF')" title="CC00FF"></td>
+<td class="colorchart" style="background-color:#CC33FF" onClick="colorsAll('CC33FF')" title="CC33FF"></td>
+<td class="colorchart" style="background-color:#CC66FF" onClick="colorsAll('CC66FF')" title="CC66FF"></td>
+<td class="colorchart" style="background-color:#CC99FF" onClick="colorsAll('CC99FF')" title="CC99FF"></td>
+<td class="colorchart" style="background-color:#CCCCFF" onClick="colorsAll('CCCCFF')" title="CCCCFF"></td>
+<td class="colorchart" style="background-color:#CCFFFF" onClick="colorsAll('CCFFFF')" title="CCFFFF"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#0000CC" onClick="colorsAll('0000CC')" title="0000CC"></td>
+<td class="colorchart" style="background-color:#0033CC" onClick="colorsAll('0033CC')" title="0033CC"></td>
+<td class="colorchart" style="background-color:#0066CC" onClick="colorsAll('0066CC')" title="0066CC"></td>
+<td class="colorchart" style="background-color:#0099CC" onClick="colorsAll('0099CC')" title="0099CC"></td>
+<td class="colorchart" style="background-color:#00CCCC" onClick="colorsAll('00CCCC')" title="00CCCC"></td>
+<td class="colorchart" style="background-color:#00FFCC" onClick="colorsAll('00FFCC')" title="00FFCC"></td>
+<td class="colorchart" style="background-color:#99FFCC" onClick="colorsAll('99FFCC')" title="99FFCC"></td>
+<td class="colorchart" style="background-color:#99CCCC" onClick="colorsAll('99CCCC')" title="99CCCC"></td>
+
+<td class="colorchart" style="background-color:#9999CC" onClick="colorsAll('9999CC')" title="9999CC"></td>
+<td class="colorchart" style="background-color:#9966CC" onClick="colorsAll('9966CC')" title="9966CC"></td>
+<td class="colorchart" style="background-color:#9933CC" onClick="colorsAll('9933CC')" title="9933CC"></td>
+<td class="colorchart" style="background-color:#9900CC" onClick="colorsAll('9900CC')" title="9900CC"></td>
+<td class="colorchart" style="background-color:#CC00CC" onClick="colorsAll('CC00CC')" title="CC00CC"></td>
+<td class="colorchart" style="background-color:#CC33CC" onClick="colorsAll('CC33CC')" title="CC33CC"></td>
+<td class="colorchart" style="background-color:#CC66CC" onClick="colorsAll('CC66CC')" title="CC66CC"></td>
+<td class="colorchart" style="background-color:#CC99CC" onClick="colorsAll('CC99CC')" title="CC99CC"></td>
+<td class="colorchart" style="background-color:#CCCCCC" onClick="colorsAll('CCCCCC')" title="CCCCCC"></td>
+<td class="colorchart" style="background-color:#CCFFCC" onClick="colorsAll('CCFFCC')" title="CCFFCC"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#000099" onClick="colorsAll('000099')" title="000099"></td>
+<td class="colorchart" style="background-color:#003399" onClick="colorsAll('003399')" title="003399"></td>
+<td class="colorchart" style="background-color:#006699" onClick="colorsAll('006699')" title="006699"></td>
+<td class="colorchart" style="background-color:#009999" onClick="colorsAll('009999')" title="009999"></td>
+<td class="colorchart" style="background-color:#00CC99" onClick="colorsAll('00CC99')" title="00CC99"></td>
+<td class="colorchart" style="background-color:#00FF99" onClick="colorsAll('00FF99')" title="00FF99"></td>
+
+<td class="colorchart" style="background-color:#99FF99" onClick="colorsAll('99FF99')" title="99FF99"></td>
+<td class="colorchart" style="background-color:#99CC99" onClick="colorsAll('99CC99')" title="99CC99"></td>
+<td class="colorchart" style="background-color:#999999" onClick="colorsAll('999999')" title="999999"></td>
+<td class="colorchart" style="background-color:#996699" onClick="colorsAll('996699')" title="996699"></td>
+<td class="colorchart" style="background-color:#993399" onClick="colorsAll('993399')" title="993399"></td>
+<td class="colorchart" style="background-color:#990099" onClick="colorsAll('990099')" title="990099"></td>
+<td class="colorchart" style="background-color:#CC0099" onClick="colorsAll('CC0099')" title="CC0099"></td>
+<td class="colorchart" style="background-color:#CC3399" onClick="colorsAll('CC3399')" title="CC3399"></td>
+<td class="colorchart" style="background-color:#CC6699" onClick="colorsAll('CC6699')" title="CC6699"></td>
+<td class="colorchart" style="background-color:#CC9999" onClick="colorsAll('CC9999')" title="CC9999"></td>
+<td class="colorchart" style="background-color:#CCCC99" onClick="colorsAll('CCCC99')" title="CCCC99"></td>
+<td class="colorchart" style="background-color:#CCFF99" onClick="colorsAll('CCFF99')" title="CCFF99"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#000066" onClick="colorsAll('000066')" title="000066"></td>
+<td class="colorchart" style="background-color:#003366" onClick="colorsAll('003366')" title="003366"></td>
+<td class="colorchart" style="background-color:#006666" onClick="colorsAll('006666')" title="006666"></td>
+<td class="colorchart" style="background-color:#009966" onClick="colorsAll('009966')" title="009966"></td>
+
+<td class="colorchart" style="background-color:#00CC66" onClick="colorsAll('00CC66')" title="00CC66"></td>
+<td class="colorchart" style="background-color:#00FF66" onClick="colorsAll('00FF66')" title="00FF66"></td>
+<td class="colorchart" style="background-color:#99FF66" onClick="colorsAll('99FF66')" title="99FF66"></td>
+<td class="colorchart" style="background-color:#99CC66" onClick="colorsAll('99CC66')" title="99CC66"></td>
+<td class="colorchart" style="background-color:#999966" onClick="colorsAll('999966')" title="999966"></td>
+<td class="colorchart" style="background-color:#996666" onClick="colorsAll('996666')" title="996666"></td>
+<td class="colorchart" style="background-color:#993366" onClick="colorsAll('993366')" title="993366"></td>
+<td class="colorchart" style="background-color:#990066" onClick="colorsAll('990066')" title="990066"></td>
+<td class="colorchart" style="background-color:#CC0066" onClick="colorsAll('CC0066')" title="CC0066"></td>
+<td class="colorchart" style="background-color:#CC3366" onClick="colorsAll('CC3366')" title="CC3366"></td>
+<td class="colorchart" style="background-color:#CC6666" onClick="colorsAll('CC6666')" title="CC6666"></td>
+<td class="colorchart" style="background-color:#CC9966" onClick="colorsAll('CC9966')" title="CC9966"></td>
+<td class="colorchart" style="background-color:#CCCC66" onClick="colorsAll('CCCC66')" title="CCCC66"></td>
+<td class="colorchart" style="background-color:#CCFF66" onClick="colorsAll('CCFF66')" title="CCFF66"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#000033" onClick="colorsAll('000033')" title="000033"></td>
+<td class="colorchart" style="background-color:#003333" onClick="colorsAll('003333')" title="003333"></td>
+
+<td class="colorchart" style="background-color:#006633" onClick="colorsAll('006633')" title="006633"></td>
+<td class="colorchart" style="background-color:#009933" onClick="colorsAll('009933')" title="009933"></td>
+<td class="colorchart" style="background-color:#00CC33" onClick="colorsAll('00CC33')" title="00CC33"></td>
+<td class="colorchart" style="background-color:#00FF33" onClick="colorsAll('00FF33')" title="00FF33"></td>
+<td class="colorchart" style="background-color:#99FF33" onClick="colorsAll('99FF33')" title="99FF33"></td>
+<td class="colorchart" style="background-color:#99CC33" onClick="colorsAll('99CC33')" title="99CC33"></td>
+<td class="colorchart" style="background-color:#999933" onClick="colorsAll('999933')" title="999933"></td>
+<td class="colorchart" style="background-color:#996633" onClick="colorsAll('996633')" title="996633"></td>
+<td class="colorchart" style="background-color:#993333" onClick="colorsAll('993333')" title="993333"></td>
+<td class="colorchart" style="background-color:#990033" onClick="colorsAll('990033')" title="990033"></td>
+<td class="colorchart" style="background-color:#CC0033" onClick="colorsAll('CC0033')" title="CC0033"></td>
+<td class="colorchart" style="background-color:#CC3333" onClick="colorsAll('CC3333')" title="CC3333"></td>
+<td class="colorchart" style="background-color:#CC6633" onClick="colorsAll('CC6633')" title="CC6633"></td>
+<td class="colorchart" style="background-color:#CC9933" onClick="colorsAll('CC9933')" title="CC9933"></td>
+<td class="colorchart" style="background-color:#CCCC33" onClick="colorsAll('CCCC33')" title="CCCC33"></td>
+<td class="colorchart" style="background-color:#CCFF33" onClick="colorsAll('CCFF33')" title="CCFF33"></td>
+</tr><tr>
+
+<td class="colorchart" style="background-color:#000000" onClick="colorsAll('000000')" title="000000"></td>
+<td class="colorchart" style="background-color:#003300" onClick="colorsAll('003300')" title="003300"></td>
+<td class="colorchart" style="background-color:#006600" onClick="colorsAll('006600')" title="006600"></td>
+<td class="colorchart" style="background-color:#009900" onClick="colorsAll('009900')" title="009900"></td>
+<td class="colorchart" style="background-color:#00CC00" onClick="colorsAll('00CC00')" title="00CC00"></td>
+<td class="colorchart" style="background-color:#00FF00" onClick="colorsAll('00FF00')" title="00FF00"></td>
+<td class="colorchart" style="background-color:#99FF00" onClick="colorsAll('99FF00')" title="99FF00"></td>
+<td class="colorchart" style="background-color:#99CC00" onClick="colorsAll('99CC00')" title="99CC00"></td>
+<td class="colorchart" style="background-color:#999900" onClick="colorsAll('999900')" title="999900"></td>
+<td class="colorchart" style="background-color:#996600" onClick="colorsAll('996600')" title="996600"></td>
+<td class="colorchart" style="background-color:#993300" onClick="colorsAll('993300')" title="993300"></td>
+<td class="colorchart" style="background-color:#990000" onClick="colorsAll('990000')" title="990000"></td>
+<td class="colorchart" style="background-color:#CC0000" onClick="colorsAll('CC0000')" title="CC0000"></td>
+<td class="colorchart" style="background-color:#CC3300" onClick="colorsAll('CC3300')" title="CC3300"></td>
+<td class="colorchart" style="background-color:#CC6600" onClick="colorsAll('CC6600')" title="CC6600"></td>
+<td class="colorchart" style="background-color:#CC9900" onClick="colorsAll('CC9900')" title="CC9900"></td>
+<td class="colorchart" style="background-color:#CCCC00" onClick="colorsAll('CCCC00')" title="CCCC00"></td>
+
+<td class="colorchart" style="background-color:#CCFF00" onClick="colorsAll('CCFF00')" title="CCFF00"></td>
+</tr><tr>
+<td class="colorchart" style="background-color:#000000" onClick="colorsAll('000000')" title="000000"></td>
+<td class="colorchart" style="background-color:#111111" onClick="colorsAll('111111')" title="111111"></td>
+<td class="colorchart" style="background-color:#222222" onClick="colorsAll('222222')" title="222222"></td>
+<td class="colorchart" style="background-color:#333333" onClick="colorsAll('333333')" title="333333"></td>
+<td class="colorchart" style="background-color:#444444" onClick="colorsAll('444444')" title="444444"></td>
+<td class="colorchart" style="background-color:#555555" onClick="colorsAll('555555')" title="555555"></td>
+<td class="colorchart" style="background-color:#666666" onClick="colorsAll('666666')" title="666666"></td>
+<td class="colorchart" style="background-color:#777777" onClick="colorsAll('777777')" title="777777"></td>
+<td class="colorchart" style="background-color:#888888" onClick="colorsAll('888888')" title="888888"></td>
+<td class="colorchart" style="background-color:#999999" onClick="colorsAll('999999')" title="999999"></td>
+<td class="colorchart" style="background-color:#AAAAAA" onClick="colorsAll('AAAAAA')" title="AAAAAA"></td>
+<td class="colorchart" style="background-color:#BBBBBB" onClick="colorsAll('BBBBBB')" title="BBBBBB"></td>
+<td class="colorchart" style="background-color:#CCCCCC" onClick="colorsAll('CCCCCC')" title="CCCCCC"></td>
+<td class="colorchart" style="background-color:#DDDDDD" onClick="colorsAll('DDDDDD')" title="DDDDDD"></td>
+<td class="colorchart" style="background-color:#EEEEEE" onClick="colorsAll('EEEEEE')" title="EEEEEE"></td>
+
+<td class="colorchart" style="background-color:#FFFFFF" onClick="colorsAll('FFFFFF')" title="FFFFFF"></td>
+<td class="colorchart" style="background-color:#444444"></td>
+<td class="colorchart" style="background-color:#444444"></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

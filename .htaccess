@@ -1,0 +1,3 @@
+DirectoryIndex main.php
+php_flag register_globals off
+SetEnv NETZ_ROOT_PATH netz

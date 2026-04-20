@@ -1,0 +1,104 @@
+<?php
+/*###############################################################
+        NETz Network Management system                          #
+        http://www.proedgenetworks.com/netz                     #
+                                                                #
+                                                                #
+        Copyright (C) 2005-2006 Louie Zarrella                  #
+        louiez@proedgenetworks.com                              #
+                                                                #
+        Released under the GNU General Public License           #
+        Copy of License available at :                          #
+        http://www.gnu.org/copyleft/gpl.html                    #
+###############################################################*/
+
+include('../../logon.php');
+include_once("../../site-monitor.conf.php");
+include('../../write_access_log.php');
+require_once( '../../class.ConfigMagik.php');
+
+// open connection to Database server
+$conns = mysql_connect(NETZ_DB_SERVER, NETZ_DB_USERNAME, NETZ_DB_PASSWORD);
+if (!$conns) {
+   die('Could not connect: ' . mysql_error());
+}
+// Select database
+mysql_select_db(NETZ_DATABASE);
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+<?php
+
+//      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+//      |       User Access code        |
+//	|  change access level below 	|
+//	|  to control who can connect	|
+//	|  ***************************	|
+//	| $_SESSION['accesslevel'] == 0	|
+//	| only keeps disabled user out	|
+//	|  ***************************	|
+// =====================================================================================================//
+//$acl=$_SESSION['accesstype'];                                                                         //
+if ($_SESSION['accesslevel'] < 10){                                                                     //
+        echo '<script type="text/javascript">window.location.href="../../access_denied.html"</script>'; //
+        echo '<meta http-equiv="refresh" content="0;url=../../access_denied.html" />';                  //
+        }                                                                                               //
+// =====================================================================================================//
+
+// Read the ini file
+// your plugin can use this file to store config data
+// be carefull what you store in this file ... 
+// it is readable by any web user by default
+
+// get the current directory
+$current_dir = getcwd();
+$Config = new ConfigMagik($current_dir."/plugin.ini", true, true );
+$name= $Config->get('name', 'plugin_info');
+$desc=$Config->get('description', 'plugin_info');
+$version=$Config->get('version', 'plugin_info');
+$help=$Config->get('help', 'plugin_info');
+
+
+?>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<?php $style=$_SESSION['style']; if ($style==""){$style="../../style/ultramarine.css";}?>
+<link rel="stylesheet" href="<?php echo "../../".$style  ?>" type="text/css">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/vnd.microsoft.icon" >
+    <link rel="icon" href="../../favicon.ico" type="image/vnd.microsoft.icon" >
+
+<title><?php echo $name. " Configuration"; ?></title>
+</head>
+<body >
+
+<?php 
+	$save=$_POST['save'];
+	if ($save == "save"){
+		// write $mydata entered by user to plugin file as my_data_name
+		$mydata=$_POST['submitted_data'];
+		$Config->set('my_data_name',$mydata, 'plugin_info');
+		header("Location: ../../netz-config.php");
+	} else {
+
+/*
+// create query string
+$SQL="SELECT * FROM SITEDATA";
+// Query database
+$result=mysql_query($SQL);
+	while ($row = mysql_fetch_assoc($result))
+	{
+		// print the site is....etc
+		echo $row['SITE_ID']."<br>";
+	}
+*/
+echo "<form method=\"post\" action=\"".$_SERVER['SCRIPT_NAME']."\"> <input type=\"hidden\" name=\"save\" value=\"save\">";
+echo "Some config input <input type=\"text\" name=\"submitted_data\" id=\"submitted_data\"><br>";
+echo "<input type=\"submit\" name=\"mysubmit\" id=\"mysubmit\"><br>";
+echo "</form>";
+}
+?>
+
+</body></html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<title>Mass Down Site Alert</title>
+<script type="text/javascript" src="../size_window.js"></script>
+<style type="text/css">
+.smallhead {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #016A9D;
+        font-weight: bold;
+        line-height: 20px;
+}
+.text {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #333333;
+        font-weight: normal;
+}
+
+</style>
+<script type="text/javascript">
+function closeWindow()
+{
+	window.close();
+}
+</script>
+</head><body>
+<div id="show_div">
+<table border="0" cellspacing="0" cellpadding="4" width="96%">
+<tr><td align="right" class="text"><a href="javascript: closeWindow();">Close</a></td></tr>
+<tr><td align="left" class="smallhead">Mass Alert</td></tr>
+<tr><td class="text"><p class="text" align="justify">
+<pre class="text">
+A Mass alert is when NETz detects on one Monitor cycle that 
+ many sites show down that were not down on the last cycle.
+
+You can set this threshold Number that NETz will use to trigger an alert.
+
+During Alert Check.. 
+the number of sites down
+that have not already Triggerd an alert (ALERT_SENT)
+must be equal to or greater than this threshold number to trigger a mass alert.
+
+Mass alert emails will continue until fixed or the monitor shut down.
+
+During a mass alert... no other alerts will be sent ...nor will the ALERT_SENT flag be set.
+
+
+
+</pre>
+
+
+</p></td></tr>
+
+</table>
+</div>
+<script type="text/javascript">
+	sizeToFit("show_div");
+</script>
+
+</body></html>

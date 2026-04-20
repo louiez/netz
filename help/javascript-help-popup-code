@@ -1,0 +1,9 @@
+<script type="text/javascript">
+function openhelp(url)
+{
+        window.open( url, "","resizable=1,HEIGHT=250,WIDTH=300");
+}
+</script>
+
+
+<a href="javascript:openhelp('help/timeout.html')">(?)</a>

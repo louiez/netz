@@ -1,0 +1,8 @@
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+.env
+config.local.php
+secrets*

@@ -1,0 +1,17 @@
+Cable
+Cable-Distributed-Branch
+Cable-Distributed-Main
+DSL
+DSL-Distributed-Branch
+DSL-Distributed-Main
+Frame
+Frame-Distributed-Branch
+Frame-Distributed-Main
+T1
+T1-Distributed-Branch
+T1-Distributed-Main
+VSAT
+Wan-thru-Private-Lan
+Wireless
+Wireless-Distributed-Branch
+Wireless-Distributed-Main

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<title>Title</title>
+<script type="text/javascript" src="../size_window.js"></script>
+<style>
+.smallhead {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #016A9D;
+        font-weight: bold;
+        line-height: 20px;
+}
+.text {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        color: #333333;
+        font-weight: normal;
+}
+
+</style>
+<script type="text/javascript">
+function closeWindow()
+{
+        window.close();
+}
+</script>
+</head><body>
+<div id="show_div">
+
+<table border="0" cellspacing="0" cellpadding="4" width="96%">
+<tr><td align="right" class="text"><a href="javascript: closeWindow();">Close</a></td></tr>
+<tr><td align="left" class="smallhead">LAN IPs</td></tr>
+<tr><td class="text"><p class="text" align="justify">
+After the Page loads, the NETz server will Ping the LAN IP and Gateway
+and display <br />
+<img id="wangatewayipimg" src="../img/online.gif" width="12" height="12" /> if Online <br />
+<img id="wangatewayipimg" src="../img/down.gif" width="12" height="12" /> if  down<br />
+The page will request the NETz server check this every 15 seconds and change the image if online status changes .
+</p></td></tr>
+<tr><td align="left" class="smallhead">Buttons</td></tr>
+<tr><td class="text"><p class="text" align="justify">
+There are 4 buttons [P][T][S][W] for Ping, Telnet,SSH and Web.<br><br>
+<b>[P]</b> The ping button will open the ping window and ping the IP in this field.<br><br>
+<b>[T]</b> Telnet button will attempt to open a Telnet session with the default telnet client on your system.
+    you will need to alter the registry to use the correct application for telnet
+    the registry key is HKEY_CLASSES_ROOT\telnet\shell\open\command
+    if you are not sure how to do this get with your PC support <br><br>
+<b>[S]</b> the SSH button will open the application used  with SSH URL handler from a browser
+    normally windows dosen't have a URL handler for SSH and you will need to add one
+    just like the Telnet URL handler located at HKEY_CLASSES_ROOT\ <br><hr>
+    <a href="ssh_reg_key_sample.txt" title="ssh_reg_key_sample.txt">
+   sample</a> reg import file that uses putty.. just change if you use a different app for ssh client<br><br>
+   <hr>
+<b>[W]</b> Web button will attempt to web into the site ie: ( http://FIELD-IP ) from the web browser
+
+</p></td></tr>
+
+</table>
+</div>
+<script type="text/javascript">
+	sizeToFit("show_div");
+</script>
+
+</body></html>

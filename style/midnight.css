@@ -1,0 +1,263 @@
+input.button{
+	font-size:11px ; 
+	font-weight:bold; 
+	color: #000; 
+	background-color: #999966;
+	border-style:outset;
+	border-width:2px 
+
+}
+.inputhidden {
+	font-size:11px ; 
+	font-weight:bold ; 
+	color:#BBBBCC ; 
+	background-color: #000;
+	border:	none;
+}
+textarea, select, input{
+  	font-family:helvetica,arial,sans-serif;
+  	font-size:11px;
+  	font-weight:bold;
+  	background-color:#555;
+  	border-color:#369;
+  	border-style:inset;
+  	border-width:2px;
+	border-radius: 5px;
+  	color:#fff;
+}
+ fieldset{
+	border: 1px solid #555555;
+	border-radius: 5px;
+}
+legend{
+	color: #000;
+	background: #999966;
+	font-size:10px;
+	font-weight:bold;
+	border: 1px solid #555555;
+	border-radius: 5px;
+	padding: 2px 6px
+}	
+tfoot, thead	{	
+	font-size:	1em;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family:	helvetica,arial,sans-serif;
+	}		
+.tdlight	{
+	background-color: #333 ;
+	padding: 2px;
+	font-size:      11px;
+}
+.tddark	{
+	background-color: #000 ;
+        padding: 2px;
+        font-size:      11px;
+}
+table, tbody, tr        {
+        color:  #FFF;
+        padding-left: 2px;
+        padding-right: 2px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        border-collapse:collapse;
+        border-color:   #369;
+        border-style:   none;
+        border-width: 1px;
+        background:     #000;
+        font-size:      11px;
+        margin-left: 1%;
+        word-spacing:   normal;
+        letter-spacing: normal;
+        text-align:     left;
+        text-transform: none;
+        font-family:    helvetica,arial,sans-serif;
+        font-weight:    bold;
+        }
+td      {               
+        background:     #000;
+        border-top:     solid #369;
+        border-right:     solid #369;
+        border-left:     solid #369;
+        border-bottom:     solid #369;
+        border-collapse:collapse;
+        border-width: 1px;
+        }     
+td.monlogs {
+        padding-left: 5px;
+        padding-right: 5px;
+        text-align:     center;
+        }
+
+th	{	
+	text-align:	center;
+	vertical-align:	baseline;
+	font-size:	12px; 
+	color:          #FFF;
+	border-color:   #369;
+	border-width: 1px;
+	border-style:   solid;
+	font-weight:	bold;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family:	helvetica,arial,sans-serif;
+	}	
+a:visited, a:link 	{	
+	text-decoration:	none;
+	font-weight:	bold;
+	color:	#EC0;
+        font-size:      11px;
+	}	
+a:hover	{	
+	text-decoration:	none;
+	color:	#EC0;
+	background:     #00F;
+        outline:#EC0 solid 1px;
+
+	}	
+a:active {
+        text-decoration:        none;
+        font-weight:    bold;
+        color:  #EC0;
+        font-size:      11px;
+        }
+a:visited.alink {color:red; font-weight:bold}
+a:link.alink {color:red; font-weight:bold}
+a:visited.alinkblue {color:blue; font-weight:bold}
+a:link.alinkblue {color:blue; font-weight:bold}
+a:visited.alinkgreen {color:green; font-weight:bold}
+a:link.alinkgreen {color:green; font-weight:bold}
+a:visited.alinklightgreen {color:#0F0; font-weight:bold}
+a:link.alinklightgreen {color:#0F0; font-weight:bold}		
+/* Class for footer link */
+a:link.footer {color:#000088; font-weight:bold}
+a:visited.footer {color:#000088; font-weight:bold}
+a:hover.footer {color:#FFFFFF; background-color:#000; font-weight:bold}
+h1, h2, h3, h4, h5, h6	{
+	color:  	#BBBBCC;	
+	margin-left:	0;
+	margin-right:	0;
+	padding-left:	0;
+	padding-right:	0;
+	border-left:	0;
+	border-right:	0;
+	}	
+h1.center{text-align:     center;}
+h2.center{text-align:     center;}		
+h3.center{text-align:     center;}
+h4.center {text-align:     center;}		
+h5.center{text-align:     center;}		
+h6.center{text-align:     center;}
+body	{
+	color:	#FFF;
+	background:	#000;
+	margin-top:		1%;
+	margin-left:	1.5%;
+	margin-right:	1%;
+	margin-bottom:	0;
+	padding-top:	0;
+	padding-left:	0;
+	padding-right:	0;
+	padding-bottom:	0;
+	border-top:	0;
+	border-left:	0;
+	border-bottom:	0;
+	border-right:	0;
+	width:	auto;
+	font-size:	11px;
+	font-weight:	normal;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family:	helvetica,arial,sans-serif;
+	}
+/*  used on the footer Div*/
+.footer {
+        width:100%;
+        text-align:center;
+        margin-top:5px;
+        padding:1px;
+        background:#000;
+        color:	#222;
+}
+/* These classes are used by the script as rollover effect for table 1 and 2 */
+.tableRollOverEffect1{
+        background-color:	#666;
+        color:	#BECA00;
+        padding-left: 2px;
+        padding-right: 2px;
+        padding-bottom: 2px;
+        padding-top:    2px;
+
+}
+.tableRowClickEffect1{
+        background-color:	#888;
+        color:	#00009F;
+        padding-left: 2px;
+        padding-right: 2px;
+        padding-bottom: 2px;
+        padding-top:    2px;
+}
+   /* Sidebar style */
+    .sidebar {
+      width: 250px; /* Sidebar width */
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden off-screen */
+      height: 100%;
+      background-color: #333;
+      color: white;
+      transition: left 0.3s ease;
+      z-index: 9999; /* Ensure sidebar is on top */
+    }
+
+    /* Sidebar when open */
+    .sidebar.open {
+      left: 0; /* Sidebar slides in from the left */
+    }
+
+    /* Menu content */
+    .menu-content {
+      padding: 20px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 0; /* No space for sidebar by default */
+      transition: margin-left 0.3s ease;
+    }
+
+    .sidebar.open + .main-content {
+      margin-left: 250px; /* Add space for the sidebar */
+    }
+
+    /* Button style */
+    .toggle-button {
+      position: absolute;
+      top: 120px;
+      left: 262px;
+      font-size: 14px;          /* Smaller font size */
+      width: 100px;              /* Set width for a more compact button */
+      height: 30px;            /* Set height for the vertical button */
+      background-color: #333;
+      color: white;
+      border: none;
+      text-align: center;
+      padding: 5px;
+      cursor: pointer;
+      z-index: 10000;           /* Ensure it's on top */
+      transform: rotate(-90deg); /* Rotate the text vertically */
+      transform-origin: left center; /* Fix the rotation origin to the left edge */
+    }
+
+
+

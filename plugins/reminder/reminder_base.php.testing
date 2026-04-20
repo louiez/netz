@@ -1,0 +1,428 @@
+<?php 
+//if (stripos($_SERVER['REQUEST_URI'],"support.php") > 0) {
+//	$support = true;
+//}else{
+//	$support = false ;
+//}
+
+?>
+<script type="text/javascript" src="plugins/reminder/div_move.js"> </script>
+<script type="text/javascript">
+function init_boxes(){
+        var d = new Date();
+        var pcHours = d.getHours();
+        var pcMin = d.getMinutes();
+	var pcMonth = d.getMonth()+1;
+	var pcDay = d.getDate();
+	var pcyear = d.getFullYear();
+	 // Pad the minutes with leading zeros, if required
+	 pcMin = ( pcMin < 10 ? "0" : "" ) + pcMin;
+
+        document.getElementById('reminder_id').value = d.valueOf();
+        document.getElementById('reminder_time').value = pcHours+":"+pcMin;
+	document.getElementById('reminder_date').value = pcMonth + '/' + pcDay + '/' + pcyear;
+	// get the site id from tha magic javascript variable (site) set in ops and support pages
+	document.getElementById('reminder_description').value = site;
+	document.getElementById('reminder_name').value = "";
+	document.getElementById('reminder_action').value = "";
+}
+
+//  EDIT Reminder
+function edit_reminder(name, dt, time, description, id,rat){
+	document.getElementById('reminder_name').value = name;
+	document.getElementById('reminder_id').value = id;
+	document.getElementById('reminder_date').value = dt;
+	document.getElementById('reminder_time').value = time;
+	//=================================================================================
+	// Because the description was passed from another page...
+	// it is sent like a URL so had to be escaped before
+	// sent to this function... and then unescaped
+	document.getElementById('reminder_description').value = unescape(description);
+	//=================================================================================
+	document.getElementById('reminder_action').value = 'edit';
+
+	//=======================================================================
+	//  set the reminder Advance Time drop down box 
+	var index = 0;
+	switch(rat){
+		case "0": index=0; break;
+		case "5": index=1; break;
+		case "10": index=2; break;
+		case "15": index=3; break;
+		case "30": index=4; break;
+		case "45": index=5; break;
+		case "60": index=6; break;
+		case "120": index=7; break;
+		case "300": index=8; break;
+		case "900": index=9; break;
+		case "1440": index=10; break;
+		case "2880": index=11; break;
+		case "10080": index=12; break;
+	}
+	document.getElementById('reminder_advance_time').selectedIndex = index;
+	//=======================================================================
+
+	// Show the edit box
+	show_hide(document.getElementById('reminder_div'),'');
+
+}
+
+// DISMISS Reminder
+function dismiss_reminder(id){
+	ans = confirm("are you sure you want to Dismiss and delete this reminder ?")
+	if(ans != true){reminder_child.focus(); return false;}
+	if (window.XMLHttpRequest){
+	// code for IE7+, Firefox, Chrome, Opera, Safari
+		http=new XMLHttpRequest();
+	}else{
+		// code for IE6, IE5
+		http=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	http.open("POST","plugins/reminder/write_reminder.php?action=dismiss&id="+id,false);
+	http.send("");
+	/////////////////////
+        // Delete the row  //
+	if (reminder_child){ // this is the main reminder display page
+		// we want to delete the row... so we get the parent... the table
+        	var parenttable = reminder_child.document.getElementById(id).parentNode;
+		// now we store the Row index... 
+		// and remove one because the deleteRow is zero based
+        	rindex=reminder_child.document.getElementById(id).rowIndex -1;
+		// delete the row
+        	parenttable.deleteRow(rindex);
+		reminder_child.focus();
+		return false;
+	}else{	// this id the reminder DIV for due reminders
+		// we want to delete the row... so we get the parent... the table
+        	var parenttable = document.getElementById(id).parentNode;
+		// now we store the Row index... 
+		// and remove one because the deleteRow is zero based
+        	rindex=document.getElementById(id).rowIndex -1
+		// delete the row
+        	parenttable.deleteRow(rindex)
+		// now we check if that was the last row... and hide the box if it was
+        	if (parenttable.rows.length < 1){
+        	        show_hide(document.getElementById('display_div'), 'dismiss')
+        	}
+	}
+}
+
+// Show the Main reminder Page
+var reminder_child ;
+function show_reminders(){
+	if (reminder_child){
+		reminder_child.focus();
+		return false;
+	}
+	options="width=525,height=700,resizable=1,scrollbars=yes,status=yes";
+	reminder_child = window.open('plugins/reminder/all_reminders.php','',options)
+	show_hide(document.getElementById('show_div'),'')
+}
+
+function snooze_reminder(id){
+        if (window.XMLHttpRequest){
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+                http=new XMLHttpRequest();
+        }else{
+                // code for IE6, IE5
+                http=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        http.open("POST","plugins/reminder/write_reminder.php?action=snooze&id="+id,false);
+        http.send("");
+	// Delete the row and hide the DIV if no rows left
+	// we want to delete the row... so we get the parent... the table
+	var parenttable = document.getElementById(id).parentNode;
+        // now we store the Row index... 
+        // and remove one because the deleteRow is zero based
+	rindex=document.getElementById(id).rowIndex -1
+        // delete the row
+	parenttable.deleteRow(rindex)
+	// now we check if that was the last row... and hide the box if it was
+	if (parenttable.rows.length < 1){
+		show_hide(document.getElementById('display_div'), 'dismiss')
+	}
+}
+
+function show_hide(mymenu,action){
+                if (mymenu.style.left < '0px'){
+                        mymenu.style.left = '100px';
+                }
+                else{
+                	mymenu.style.left ='-500px';
+			if (action == "cancel" || action == "" || action == "dismiss"){return 0;}
+        		if (window.XMLHttpRequest){
+                	// code for IE7+, Firefox, Chrome, Opera, Safari
+                		xmlhttp=new XMLHttpRequest();
+        		}else{
+                		// code for IE6, IE5
+                		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        		}
+               		// now for the tricks... first set the open
+			if (document.getElementById('reminder_action').value == "edit"){
+				var id = document.getElementById('reminder_id').value
+				xmlhttp.open("POST","plugins/reminder/write_reminder.php?action=edit&id="+id,true);
+			}else{
+	                	xmlhttp.open("POST","plugins/reminder/write_reminder.php",true);
+			}
+                	// grab the text area so we can simulate the POST
+			rname=document.getElementById('reminder_name').value;
+			rdate=document.getElementById('reminder_date').value;
+			rtime=document.getElementById('reminder_time').value;
+			radvance=document.getElementById('reminder_advance_time').value;
+			rdescription=document.getElementById('reminder_description').value;
+			rid=document.getElementById('reminder_id').value;
+			// Assign all the POST variables
+			params = "reminder_name="+rname;
+			params += "&reminder_date="+rdate;
+			params += "&reminder_time="+rtime;
+                	params += "&reminder_advance_time="+radvance;
+			params += "&reminder_description="+rdescription;
+			params += "&reminder_id="+rid;
+                	// set some header info
+                	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                	xmlhttp.setRequestHeader("Content-length", params.length);
+                	xmlhttp.setRequestHeader("Connection", "close");
+			init_boxes();
+			String.prototype.trim = function() { return this.replace(/^\s+|\s+$/, ''); };
+
+		xmlhttp.onreadystatechange = function() {//Call a function when the state changes.
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					
+					var x=xmlhttp.responseText;
+				if (x.trim() != ""){alert(xmlhttp.responseText);}
+			}
+		}
+
+                xmlhttp.send(params);
+                }
+}
+// Write the Reminders due table
+function addRowDOM( nm,dt,time,des,id, table, rat)
+{
+alert("foo");
+	var tblBody = document.getElementById(table).tBodies[0];
+	var newRow = tblBody.insertRow(-1);
+	newRow.id=id;
+	// create TD and add name
+	var newCell0 = newRow.insertCell(0);
+        newCell0.style.borderStyle="solid";
+        newCell0.style.borderWidth="1px";
+        newCell0.style.borderColor="blue";
+	newCell0.onmouseover=function(){document.body.style.cursor='pointer';}
+	newCell0.onmouseout=function(){document.body.style.cursor='default';}
+	newCell0.onclick=function(){document.getElementById('alert_description').value=des;}
+ 	newCell0.appendChild(document.createTextNode(nm)); 
+	// create td and add date time
+        var newCell1 = newRow.insertCell(1);
+        newCell1.appendChild(document.createTextNode(dt)); 
+	newCell1.style.borderStyle="solid";
+	newCell1.style.borderWidth="1px";
+	newCell1.style.borderColor="blue";
+        // create td and add dismiss
+        var newCell2 = newRow.insertCell(2);
+        newCell2.style.borderStyle="solid";
+        newCell2.style.borderWidth="1px";
+        newCell2.style.borderColor="blue";
+	tag='<a href="javascript:dismiss_reminder(\''+id+'\')">Dismiss</a>';
+        newCell2.innerHTML=tag;
+	// create td and add Snooze
+        var newCell3 = newRow.insertCell(3);
+        newCell3.style.borderStyle="solid";
+        newCell3.style.borderWidth="1px";
+        newCell3.style.borderColor="blue";
+        tag='<a href="javascript:snooze_reminder(\''+id+'\')">Snooze</a>';
+        newCell3.innerHTML=tag;
+        // create td and add Edit
+        var newCell4 = newRow.insertCell(4);
+        newCell4.style.borderStyle="solid";
+        newCell4.style.borderWidth="1px";
+        newCell4.style.borderColor="blue";
+        dese=escape(des);
+        tag='<a href=\"\" onclick="javascript:edit_reminder(\''+nm+'\',\''+dt+'\',\''+time+'\',\''+dese+'\',\''+id+'\',\''+rat+'\'); self.close()">edit</a>';
+        newCell4.innerHTML=tag;
+}
+init2();
+</script>
+<!-- Display the Set Reminder Button  -->                           
+<!--
+<input 
+	class="button" 
+	type="button" 
+	name="reminder" 
+	value="Set Reminder" 
+	onclick="show_hide(document.getElementById('reminder_div'),'')">
+-->
+<input 
+        class="button" 
+        type="button" 
+        name="reminders" 
+        value="Reminders" 
+        onclick="show_reminders();">
+<!-- Hidden menu  -->
+<div id="reminder_div" style="z-index: 10;
+	background-color: green;
+	position: absolute; 
+	left: -350px; 
+	top: 150px; 
+	width: 300px; 
+	padding: 10px; 
+	border: black 3px solid" >
+	<div onmousedown="grab(this.parentNode)" 
+                onmouseover="document.body.style.cursor = 'move';"
+                onmouseout="document.body.style.cursor = 'default';"
+		style="position:relative;
+		background-color: blue;
+		left: 0px;
+		top: -9px;
+		width: 100%;
+		height: 15px; 
+		border: black 1px solid"> 
+	</div>
+	<center>
+		<b> Set Reminder </b>
+	</center>
+	<?php //if ($support){echo "<form id=\"myform\" name=\"myform\">";}?>
+        <table border="1"  width="295" style="color: white;" >
+		<tr>
+			<td>Name</td>
+			<td>
+				<input onmousedown="this.focus();" type="text" 
+					id="reminder_name" 
+					name="reminder_name" 
+					value="">
+			</td>
+		</tr>
+		<tr>
+			<td> Date</td>
+			<td>
+				<input onmousedown="this.focus();" type="text" 
+					id="reminder_date"
+					name="reminder_date" 
+					value="">
+                                <a href="javascript:show_calendar('document.myform.reminder_date', '');">
+					<img src="img/cal.gif" 
+						width="16" height="16" 
+						border="0" 	
+                                                alt="date select">
+				</a>
+			</td>
+		</tr>
+                <tr>
+			<td>Time</td>
+			<td>
+				<input onmousedown="this.focus();"  type="text" 
+					id="reminder_time"
+					name="reminder_time" 
+					value="">
+                                <input  type="hidden" 
+                                        id="reminder_id"
+                                        name="reminder_id" 
+                                        value="">
+                                <input  type="hidden" 
+                                        id="reminder_action"
+                                        name="reminder_action" 
+                                        value="">	
+			</td>
+                </tr>
+                <tr>
+                        <td>Remind me</td>
+                        <td>
+				<select  size="1" id="reminder_advance_time" name="reminder_advance_time">
+					<option value="0">On Time</option>
+					<option value="5">5 Minutes Before</option>
+                                        <option value="10">10 Minutes Before</option>
+                                        <option value="15">15 Minutes Before</option>
+                                        <option value="30">30 Minutes Before</option>
+                                        <option value="45">45 Minutes Before</option>
+                                        <option value="60">1 Hour Before</option>
+                                        <option value="120">2 Hours Before</option>
+                                        <option value="300">5 Hours Before</option>
+                                        <option value="900">15 Hours Before</option>
+                                        <option value="1440">1 Day Before</option>
+                                        <option value="2880">2 Days Before</option>
+                                        <option value="10080">1 Week Before</option>
+
+				</select>
+			</td>
+		</tr>
+	</table>
+	<?php //if ($support){echo "</form>";}?>
+	Description<br>
+	<textarea onmousedown="this.focus();" rows="10" style="width:100%" id="reminder_description"name="reminder_description"></textarea>
+        <br><br>
+	<center>
+        	<input class="button" 
+			type="button"
+			id="done" 
+			name="done" 
+			value="Done" 
+                        onclick="show_hide(document.getElementById('reminder_div'), 'save')">
+                <input class="button"
+                        type="button"
+                        name="cancel"
+                        value="Cancel"
+                        onclick="show_hide(document.getElementById('reminder_div'),'cancel')">
+	</center>
+	<script type="text/javascript">
+		init_boxes();
+	</script>
+</div>
+<?php
+include('due_reminders.php');
+// local time offset
+$local_time_zone_offset = (date("Z")/ 3600);
+// get user time offset
+$SQL_user = "SELECT * FROM USERS WHERE USERNAME = '" .$_SESSION['user']."'";
+$result_user=mysql_query($SQL_user);
+$row_user = mysql_fetch_assoc($result_user);
+$user_time_zone_offset = $row_user['TIME_ZONE_OFFSET'];
+// Calculate offset differance from user to server
+$total_offset = abs($local_time_zone_offset - $user_time_zone_offset) * 60;
+$foo="";
+$first = 0;
+// now go thru the reminders for a match
+$SQL_rem = "SELECT * FROM REMINDERS WHERE USERNAME = '".$_SESSION['user']."' ORDER BY REMINDER_DATE_TIME";
+$result_rem=mysql_query($SQL_rem);
+        while ($row_rem = mysql_fetch_assoc($result_rem)){
+		$advance= $row_rem['REMINDER_ADVANCE_TIME'] - $total_offset;
+		$advance_notice_date  = mktime(date("H"),date("i")+$advance,date("s"), date("m"), date("d") , date("Y"));
+		$advance_notice_date  = date("Y-m-d G:i:s",$advance_notice_date);
+		$SQL_item = "SELECT * FROM REMINDERS WHERE ";
+		$SQL_item .= "USERNAME = '".$_SESSION['user']."' ";
+		$SQL_item .= "AND REMINDER_NAME = '".$row_rem['REMINDER_NAME']."' ";
+		$SQL_item .= "AND REMINDER_DATE_TIME < '".$advance_notice_date."'";
+		$result_item = mysql_query($SQL_item);
+		//echo $SQL_item . "<br>";	
+		if ($row_item = mysql_fetch_assoc($result_item)){
+			if (trim($row_item['REMINDER_NAME']) != ""){
+                                $r=array(Chr(13),Chr(10),Chr(34),Chr(39),Chr(44),Chr(96));
+                                $s=array("\\n","\\n","","","","");
+                               $d=str_replace($r, $s,$row_item['DESCRIPTION']);
+                                if ($first == 0){
+                                        $first_dec="document.getElementById('alert_description').value='".$d."'; \n";$first =1;
+                                }
+                                $date = date('m/d/Y',strtotime(trim($row_item["REMINDER_DATE_TIME"])));
+                                $time = date('g:i A',strtotime(trim($row_item["REMINDER_DATE_TIME"])));
+                                $foo .= "addRowDOM('".htmlentities($row_item['REMINDER_NAME'])."','";
+                                $foo .= $date."','";
+                                $foo .= $time."','";
+                                $foo .= $d."','";
+                                $foo .=$row_item['REMINDER_ID']."','";
+                                $foo .= "display_table','";
+                                $foo .= $row_item['REMINDER_ADVANCE_TIME']."'); \n" ;
+			}
+		}		
+
+        }
+if ($foo != ""){
+echo "<script type=\"text/javascript\">";
+echo "document.getElementById('display_div').style.left= \"450px\";";
+echo $foo;
+echo $first_dec;
+echo "addTableRolloverEffect('display_table','tableRollOverEffect1','tableRowClickEffect1');";
+echo "</script>";
+}
+?>
+
+
+

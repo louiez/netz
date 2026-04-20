@@ -1,0 +1,42 @@
+Site ID,Netscreen IP,Addresss,City,ST,ZIP,Group Name,Active Date,Field Rep,Wan IP,WAN Netmask,Router serial Number,Router Asset Number,Router Model
+8001137,10.117.137.1,4413 50th Street,Lubbock,TX,79413,Barron,2004-03-01,Joel Dunacusky,,,0064122003001363,,
+8001156,10.117.143.1,800 SE 1st St.,Mineral Wells,TX,76067,Barron,2003-11-07,Joel Dunacusky,,,,,Customers Netgear
+8001326,10.117.213.1,1512 Ft. Worth Hwy,Weatherford,TX,76086,Barron,2003-11-06,Joel Dunacusky,,,,,
+8001333,10.117.133.1,3201 ARDEN DR,San Angelo,TX,76901,Barron,2003-11-05,Joel Dunacusky,,,,,
+8001135,10.117.204.1,2520 Texoma Parkway,Sherman,TX,75090,Barron,2003-09-18,Joel Dunacusky,,,0018032003001217,,NetScreen 5XP
+8001357,10.117.155.1,3433 N. FIRST STREET,Abiline,TX,79603,Barron-Reeder,2004-10-26,Joel Dunacusky,,,,,
+8001119,10.117.182.1,1101 Riverside Dr,Brownwood,TX,76801,Barron,2003-11-04,Joel Dunacusky,63.168.75.89,,,,
+8001139,10.117.199.1,1302 LUBBOCK HWY,LAMESA,TX,79331,Barron,2004-09-17,Richard Gregory,,,0064052004000941,,Netscreen 5GT
+8001344,10.117.172.1,4103 BUFFALO GAP RD,Abiline,TX,79603,Barron-Reeder,2004-10-26,Joel Dunacusky,,,,,
+8006230,10.161.168.1,410 S. WATER ST.,Burnet,TX,78611,Barron,2003-11-06,Richard Gregory,,,,,
+8006236,10.161.161.1,1202 AVE. E PO BOX 518,Ozona,TX,76943,Barron,2006-02-16,Richard Gregory,,,,,
+8006260,10.161.213.1,815 MAIN STREET,JUNCTION,TX,76849,Barron,2007-06-26,Richard Gregory,24.32.134.59,255.255.255.128,,,
+8006266,10.161.169.1,1101 N Main St,Fort Stockton,TX,79735,Barron,2003-11-05,Richard Gregory,,,,,
+8006292,10.161.208.1,100 SAN SABA STREET,MENARD,TX,76859,Barron,2006-02-09,Richard Gregory,,,,,
+8001368,10.117.140.1,409 E. Second,Odessa,TX,79761,Barron,2003-11-03,Joel Dunacusky,,,,,Netscreen 25
+8001309,10.117.160.1,306 Gregg St.,Big Spring,TX,79720,Barron,2003-11-05,Joel Dunacusky,,,,,NetGear - private VPN
+9007315,10.102.151.1,1604 N. Grimes,Hobbs,NM,88240,Barron,2003-11-04,Brad Winters,,,,,
+8001184,10.117.180.1,1905 35th Street,Snyder,TX,79549,Barron,2003-11-05,Joel Dunacusky,,,,,
+8001192,10.117.183.1,160 West South Loop,Stephenville,TX,76401,Barron,2003-11-05,Joel Dunacusky,,,,,
+9007370,10.102.162.1,3001 OLTEN ROAD,PLAINVIEW,TX,79072,Barron-McDonald,2004-01-23,Brad Winters,DHCP,,0064082003004310,,
+8001323,10.117.177.1,701 W. Main,Brownfield,TX,79316,Barron,2003-11-05,Joel Dunacusky,,,,,
+8001361,10.117.179.1,408 East Sealy St.,Monahans,TX,79756,Barron,2003-11-05,Joel Dunacusky,,,,,
+8001371,10.117.184.1,203 S. Oleander,Pecos,TX,79772,Barron,2003-11-05,Joel Dunacusky,,,,,
+8001382,10.117.174.1,207 W. BROADWAY,SWEETWATER,TX,79556,Barron,2004-07-28,Joel Dunacusky,,,,,
+8001390,10.117.176.1,4113 W. Country Rd,Odessa,TX,79762,Barron,2003-11-04,Joel Dunacusky,,,,,
+8001394,10.117.150.1,209 W MAIN,WAXAHACHIE,TX,75165,Barron,2006-12-19,Joel Dunacusky,,,,,
+8001222,10.117.233.1,409 E. Second,Odessa,TX,79761,Barron,,Joel Dunacusky,,,,,
+8001130,10.117.185.1,600 S Main,Seminole,TX,79360,Barron,2003-11-04,Joel Dunacusky,,,,,
+8001368-ROSA,10.161.249.1,,Ft Worth,TX,,Barron,2005-02-01,Richard Gregory,,,,,
+8001132,10.117.243.1,2714 WEST WALL,Midland,TX,79701,Barron,2005-11-14,Richard Gregory,,,,,
+8001133,10.117.244.1,1000 SOUTH BIG SPRING,Midland,TX,79707,Barron,2005-11-14,Richard Gregory,,,,,
+8001134,10.117.239.1,1111 W. BROADWAY,ANDREWS,TX,79714,Barron,2005-06-25,Joel Dunacusky,DHCP-Private,,S0064022005004338,000534,Netscreen 5GT - 5.0.0r8.1
+8001393,10.141.129.1,1300 East Second St,Odessa,TX,79761,Barron,2007-01-09,,,,,,
+8001364,10.117.163.1,509 4TH STREET,GRAHAM,TX,76450,Barron,2007-07-23,Joel Dunacusky,,,,,
+8001138,10.160.150.1,104 E 19th St,Lubbuck,TX,79401,Barron,2007-10-08,Richard Gregory,,,,,
+8001368-colo,10.113.179.5,5502 58th st,Lubbock,TX,79414,Barron,2007-12-17,Joel Dunacusky,216.167.150.3,,0096112005000043,,Netscreen 25
+9007280,10.117.206.1,1103 S. Ralls Hwy,Floydada,TX,79235,BarronFloydada,2008-01-04,Joel Dunacusky,,,,,
+9007509,10.102.208.1,215 SW 2nd Street,Tulia,TX,79088,Barron-McDonald,2008-07-09,Brad Winters,,,,,
+8001181,10.178.137.1,6900 County Rd,Clyde,TX,79519,Barron-Reeder,2008-07-22,Joel Dunacusky,,,,,
+8001160,10.117.141.1,102 E. Broadway,Denver City,TX,79323,Barron,2009-03-03,Joel Dunacusky,,,,,
+

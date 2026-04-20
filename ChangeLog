@@ -1,0 +1,68 @@
+[ 2-25-2006 LMZ ]+-> added code to grab MAC addy file from ieee site to run-site-cron.php
+[ 2-25-2006 LMZ ]+-> renamed ops.php and changed all refs to it
+[ 3-4-2006 LMZ ]+-> fixed ping-test.php changed the ping packet to have a
+                    nonzero ID and seq # to get past firewalls 3-4-2006 LMZ
+[ 3-4-2006 LMZ ]+-> Changed hard coded path to ping-test-web.php on ops.php to use $basedir
+[ 3-4-2006 LMZ ]+-> added feild AGREEMENT_ACCEPTED to USERS table for logging og terms acceptance
+[ 3-4-2006 LMZ ]+-> Added  terms.html and updated logon.php to handle it
+[ 3-5-2006 LMZ ]+->  changes to Ultramarine.css
+[ 3-5-2006 LMZ ]+->  created user acces code and added to all pages
+[ 3-6-2006 LMZ ]+->  created wrap.cgi a c wrapper to run ping-test-web without using sudo
+[ 3-9-2006 LMZ ]+->  corrected some formatting in ultramarine.css
+[ 3-9-2006 LMZ ]+->  added logging directory and logging in Midnight cron
+[ 3-11-2006 LMZ ]+-> Created support.php
+[ 3-25-2006 LMZ ]+-> created site-config.php
+[ 3-25-2006 LMZ ]+-> created style directory for themes
+[ 3-25-2006 LMZ ]+-> created user password change page
+[ 7-10-2006 LMZ ]+-> user add in useradmin needs to be a seperate page
+[ 7-15-2006 LMZ ]+-> support page need to have notes field
+[ 7-15-2006 LMZ ]+-> logon page needs a "forgot password" link
+[ 7-15-2006 LMZ ]+-> write class for checking code injection
+[ 7-15-2006 LMZ ]+-> change "alert sent" to Yes and No
+[ 7-16-2006 LMZ ]+-> Image map links are active when no image present
+[ 7-19-2006 LMZ ]+-> side out menu need to only show what user has access to
+[ 7-24-2006 LMZ ]+-> monitor logs link in support page needs to be moved below site search button
+[ 7-24-2006 LMZ ]+-> query builder page needs remembered serch finished
+[ 7-24-2006 LMZ ]+-> query builder page needs style sheet
+[ 7-24-2006 LMZ ]+-> query builder page needs sidebar menu
+[ 8-2006 LMZ ]+-> add saved searches in query builder
+[ 8-2006 LMZ ]+-> make better looking logon page
+[ 8-2006 LMZ ]+-> add ISP provider to down sites
+[ 8-2006 LMZ ]+-> add DSL phone to support page
+[ 8-2006 LMZ ]+-> sorting don't work in ops.php when using the advanced search
+[ 8-27-06 LMZ ]+-> Added New feature HTTP monitor
+[ 8-30-2006 LMZ ]+-> fix admin emails in the alerts
+[ 8-31-2006 LMZ ]+-> log alerts and display "alerts in ?? days on down sites
+[ 9-3-2006 LMZ ]+-> fixed \n\r getting added to Style string
+[ 9-3-2006 LMZ ]+-> changed default variables with constants
+[ 9-3-2006 LMZ ]+-> fixed Image upload when no image assigned to site
+[ 9-27-2006 LMZ ]+-> Added username and password rules
+[ 9-28-2006 LMZ ]+-> fix colors in all Grey css sheets
+[ 9-28-2006 LMZ ]+-> if no site or group images don't show "no image" text
+[ 9-28-2006 NETz tools need title changed from Proedge web tools
+[ 10-5-2006 LMZ ]+-> If monitor not enabled don't show links to graphs or stats
+[ 10-08-2006 LMZ ]+-> Changed userlevel to 10 levels 0 lowest 10 admin
+[ 10-23-2006 LMZ ]+-> Created NETz config page
+[ 10-30-2006 LMZ ]+-> finished NETz config save
+[ 1-06-2007 LMZ ]+-> Completed install.sh script
+[ 1-06-2007 LMZ ]+-> Created a revision system
+[ 1-07-2007 LMZ ]+-> Added title "Down Sites" to site-monitor.php
+[ 1-08-2007 LMZ ]+-> Moved Search bar to top of ops.php
+[ 1-08-2007 LMZ ]+-> rewrote notes text boxes and added JS set_time_stamp function
+[ 1-24-2007 LMZ ]+-> Cleaned up code on OPS and down sites pages to pass HTML validation
+[ 1-26-2007 LMZ ]+-> Fixed slow save on OPS page
+[ 1-26-2007 LMZ ]+-> Fixed Lan Netmask not being saved
+[ 3-5-2007 LMZ ]+-> Added T1-Circuit, LEC-Circuit and DLCI ID to Ops.php and Support.php
+[ 3-23-2007 LMZ ]+-> Created NETz Mini for handheld devices
+[ 5-8-2007 LMZ ]+-> Changed text boxes to span tags in support.php
+[ 5-30-2007 LMZ ]+-> Ops.php - remove monitor/alert link if no record visable
+[ 8-10-2007 LMZ ]+-> Added user access code to adduser.php
+[ 8-10-2007 LMZ ]+-> fixed write_user_pass_change.php to stop crosssite by another user
+[ 10-2-2007 LMZ ]+-> Added database changes to write_ops.php to log file logs/db-change.log
+[ 10-2-2007 LMZ ]+-> Added database changes to write-site-config.php to log file logs/db-change.log
+[ 10-4-2007 LMZ ]+-> Removed the Password from being displayed in the logs when changed 
+[ 10-4-2007 LMZ ]+-> Added Logging when input gets deleted because it sees Code being injected
+[ 10-4-2007 LMZ ]+-> Created New site add page - updated ops.php and  main.php with link
+[ 10-11-2007 LMZ ]+-> Added Chronig down sites to Down site page
+[ 11-09-2007 LMZ ]+-> fixed querycreate.php to delete the query save file when user selects delete
+[ 11-13-2007 LMZ ]+-> Added Plugin functions

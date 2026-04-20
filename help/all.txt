@@ -1,0 +1,253 @@
+###### alertcycles.html ######
+###### alertcycles.html ######
+                                                                          Close
+Number of Monitor Cycles missed before Alert sent
+This is the Number of Monitor Cycles a site must fail before an Alert Email is
+sent. Each site must be configured to send alerts for this to have any meaning.
+###### allowuploads.html ######
+###### allowuploads.html ######
+                                                         Close
+Allow Document Uploads
+This will allow Site and Group Image uploads from the Ops page
+###### basedir.html ######
+###### basedir.html ######
+                                                                          Close
+Base Directory
+This is the full path Directory where you have installed the NETz system files.
+
+
+This should have a trailing "/"
+for example: /var/www/netz/
+###### daystokeeplogs.html ######
+###### daystokeeplogs.html ######
+                                                                          Close
+Days to keep Logs
+This is the number of Days Monitor logs will be stored before being cleared by
+the daily clean up scripts.
+Be carful with this ... during testing with 4800 sites, getting pinged every 10
+minutes and saving logs for 30 days... The server started to slow down with
+displaying the logs. Currently all the pages that display logs only go back 14
+days...
+so saving logs longer than that will only be usefull if you query the database
+outside NETz
+###### groups.html ######
+###### groups.html ######
+                                                                          Close
+Group
+Name a group of sites with common ownership or Location
+Show and Ping
+The show link will display all sites in the group
+If you check the Ping checkbox before showing the group all the LAN IPs will be
+pinged
+If they come back alive it will change the displayed IP Green and Red if down
+###### httpcontent.html ######
+###### httpcontent.html ######
+                                                                          Close
+HTTP Content
+This is still in testing so feedback is welcome. Checks the page for basic text
+content. for example you have a page with some text "hello world" it will check
+for that text in the web page.
+###### httppage.html ######
+###### httppage.html ######
+                                                                         Close
+HTTP Page
+This is the page you want to check for. Enter this page with the directory and
+page with a leading / For example If your page is http://www.mydomain.com/dir/
+somepage.html You would enter /dir/somepage.html If left empty the tester will
+just check the default page.
+###### lanips.html ######
+###### lanips.html ######
+                                                                          Close
+LAN IPs
+After the Page loads, the NETz server will Ping the LAN IP and Gateway and
+display
+[../online.gif] if Online
+[../down.gif] if down
+The page will request the NETz server check this every 15 seconds and change
+the image if online status changes .
+Buttons
+There are 3 buttons [P][T][S][W] for Ping, Telnet,SSH and Web.
+[P] The ping button will open the ping window and ping the IP in this field.
+
+[T] Telnet button will attempt to open a Telnet session with the default telnet
+client on your system. you will need to alter the registry to use the correct
+application for telnet the registry key is
+HKEY_CLASSES_ROOT\telnet\shell\open\command if you are not sure how to do this
+get with your PC support
+
+[S] the SSH button will open the application used with SSH URL handler from a
+browser normally windows dosen't have a URL handler for SSH and you will need
+to add one just like the Telnet URL handler located at HKEY_CLASSES_ROOT\
+
+[W] Web button will attempt to web into the site ie: ( http://FIELD-IP ) from
+the web browser
+###### logdir.html ######
+###### logdir.html ######
+                                           Close
+NETz Log Directory
+This is where NETz will write Logs to
+It should be outside the Web directory structure
+the default is /usr/netz/logs/
+###### macsearch.html ######
+###### macsearch.html ######
+                                                        Close
+MAC address search
+Enter the first 6 or more digits of a mac address to search.
+You can enter in almost any format displayed on most systems.
+ie:
+00-0C-F1
+00:0C:F1
+00 0C F1
+000CF1
+###### monitorcycles.html ######
+###### monitorcycles.html ######
+                                                                        Close
+Monitor Cycle interval
+This is the amount of Time the server will wait before starting another Ping
+cycle.
+NETz will complete all monitor pings for all sites within this cycle...
+
+NETz Pings each site 3 times per cycle. So a monitor cycle set for 10 minutes
+will ping each site 3 times every 10 min.
+###### monitoronline.html ######
+###### monitoronline.html ######
+                                                                          Close
+Monitor Online check IPs
+Monitor IPs are used to check the NETz monitor to be sure it is online.
+
+If it can't ping ANY of these addresses it will assume it is offline and not
+send any alerts for sites offline.
+But It will try to send email to the NETz admins....
+assuming that the NETz server is offline... these emails might never make it to
+the Admins....but it will try anyway.. :-)
+###### plugin.html ######
+###### plugin.html ######
+                                                                          Close
+NETz Plugins
+Creating NETz plugin
+The NETz plugin was created because most times "one size fits all" just don't
+work.
+So with plugins you can add function, links and messages without breaking the
+NETz core files.
+This plugin system lets you upgrade NETz and just save and restore the Plugins
+directory.
+
+Each plugin can be controled as to what level of user has access to it.
+if a plugin is set to user level 2, anybody 2 or higher will activate that
+plugin.
+
+NETz Plugin can be a link to a file, page or site
+Plugins can fun from
+Main page
+Ops page
+Support Page
+Site check script
+See list below for exact locations
+
+Netz has predetermined locations it will check for plugin inclusion.
+when it gets to these locations it checks
+1. what plugins have been enabled
+2. if this plugin was set to run at this location
+3. If the current user has the correct level to run this plugin
+4. it looks at the plugings ini file to see how this plugin is run
+
+
+
+Below are the location tags within a plugin.ini file that can be used
+plugin_info
+support_footer - this will run at the very bottom of the support page just
+befor the NETz footer note
+support_middle_1 - this is in the table cell on row 7 last column
+support_middle_2 - this is in the table cell on row 10 last column
+support_left
+support_load
+main_admin
+main-load
+main_footer
+main_info
+main_tools
+ops_top_right
+ops_middle_1
+ops_middle_2
+ops_load
+ops_footer
+ops_bottom_right
+site_check_start
+site_check_end
+
+Delete the location section not needed
+
+
+Netz searches the plugins for directories and assumes any directory is a
+plugin.
+then it reads the main plugin.ini file to see what plugins are enabled.
+It then will look in each directory for a plugin.ini file and read its
+contents.
+
+your included file can access the javascript variable 'site' to get the SITE_ID
+or
+if you have a link added it will be passed the GET site  ie: http://
+yoururl.php?site=
+###### smtpauth.html ######
+###### smtpauth.html ######
+                                                                         Close
+SMTP Auth
+Many providers now block outbound port 25 (email) traffic.
+in order to send mail you must relay off your providers email server.
+then this relay started to become an issue so now most will require you
+to not only relay off their server but logon first with a valid account using
+SMTPAUTH.
+some providers even go one step further, and require a valid "authorized" from
+email address.
+
+Now with that rant done.
+If you want NETz to send alert emails and you have a provider with SMTPAUTH
+requirements.
+Netz provides a place to enter a valid User, password and from address.
+###### supportalert.html ######
+###### supportalert.html ######
+                                                                       Close
+Send Support Alerts
+Checking Send Support offline Alert Email will send an email to the support
+email(s) listed in the config for this sites support center when the monitor
+sees the site go offline
+
+Checking Send Support ONline Alert Email will send an email to the support
+email(s) listed in the config for this sites support center when the monitor
+sees the site come back ONline
+###### supportsearch.html ######
+###### supportsearch.html ######
+                                    Close
+Search
+Enter full or partial text to search for.
+The search will include fields
+Site ID
+Group
+Lan IP
+City
+###### template.html ######
+###### template.html ######
+     Close
+Help Topic
+content
+###### timeout.html ######
+###### timeout.html ######
+                                                                      Close
+Timeout
+The Timeout is the amount of time the monitor will wait for a reply on each
+ping request. This is in miliseconds 1000ms = 1 second
+###### uploaddir.html ######
+###### uploaddir.html ######
+                                                Close
+Upload Directory
+The Path where uploaded image files will be stored
+Be sure the permissions are correct on this directory
+###### vipalert.html ######
+###### vipalert.html ######
+                                                                         Close
+VIP Online/Off;ine
+Checking Send VIP offline Alert Email will send an email to the VIP email(s)
+listed in the box below when the monitor sees the site go offline
+
+Checking Send VIP ONline Alert Email will send an email to the email(s) listed
+in the box below when the monitor sees the site come back ONline

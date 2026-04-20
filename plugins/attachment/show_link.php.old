@@ -1,0 +1,81 @@
+<?php
+include('../../logon.php');
+include_once("../../site-monitor.conf.php");
+mysql_select_db(NETZ_DATABASE);
+mysql_connect(NETZ_DB_SERVER, NETZ_DB_USERNAME, NETZ_DB_PASSWORD);
+$cnt=0;
+$first = 0;
+function get_image($imgtype){
+	switch ($imgtype) {
+		case "text/plain":
+			$imgname = "tex.png";
+			break;
+		case "text/html":
+			$imgname = "html.png";
+			break;
+		case "image/jpeg":
+			$imgname = "jpeg.png";
+			break;
+                case "image/x-ms-bmp":
+                        $imgname = "jpeg.png";
+                        break;
+                case "image/png":
+                        $imgname = "jpeg.png";
+                        break;
+                case "image/gif":
+                        $imgname = "jpeg.png";
+                        break;
+                case "image/x-icon":
+                        $imgname = "jpeg.png";
+                        break;
+                case "audio/mpeg":
+                        $imgname = "mp3.png";
+                        break;
+                case "audio/wav":
+                        $imgname = "wav.png";
+                        break;
+                case "video/mpeg":
+                        $imgname = "mpg.png";
+                        break;
+                case "video/x-ms-wmv":
+                        $imgname = "wmv.png";
+                        break;
+                case "video/quicktime":
+                        $imgname = "mov.png";
+                        break;
+                case "application/x-shockwave-flash":
+                        $imgname = "swf.png";
+                        break;
+                case "application/msword":
+                        $imgname = "doc.png";
+                        break;
+                case "application/vnd.visio":
+                        $imgname = "vsd.png";
+                        break;
+		default:
+			$imgname = "file.png";
+			break;
+	}
+return $imgname;
+}
+//$link_data = "<a target=\"_top\" href=\"plugins/attachment/show_attachments.php\">Attachments</a>&nbsp;";
+$link_data = "<a href=\"@\" onclick=\"return open_message('Attachments',";
+$link_data .= "'plugins/attachment/show_attachments.php?site='+site)\" >Attachments</a>&nbsp;";
+// now go thru the reminders for a match
+$SQL_item = "SELECT * FROM ATTACHMENTS WHERE SITE_ID = '".$site_id."' LIMIT 5";
+$result_item=mysql_query($SQL_item);
+        while ($row_item = mysql_fetch_assoc($result_item)){
+		if ((int)$_SESSION['accesslevel'] >= (int)$row_item['MIN_USER_ACCESS_LEVEL'] ){
+			$cnt++;
+			$link_data .= "\n<img title=\"".$row_item["FILENAME"]."\" ";
+			$link_data .= "onclick=\"return open_message('".$cnt."',";
+			$link_data .= "'plugins/attachment/download_attachment.php?filename=".$row_item["FILENAME"];
+			$link_data .= "&amp;uid=".$row_item["UID"]."')\"";
+			
+			$link_data .= " alt=\"" .$row_item["FILENAME"]."\"";
+			$link_data .= " src=\"img/fileicons/".get_image($row_item["FILE_TYPE"])."\"> &nbsp;";
+
+		}
+	}
+echo $link_data;
+?>

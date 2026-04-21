@@ -6,6 +6,22 @@ Originally developed in 2005 and used in production for monitoring and managing 
 
 ---
 
+## Quick Start
+
+git clone https://github.com/louiez/netz.git
+cd netz
+./install.sh
+
+Then open:
+
+http://your-server/netz/
+
+Login:
+admin / password
+
+
+---
+
 ## Overview
 
 Netz was built to solve real-world network monitoring problems without relying on heavy frameworks or external libraries.

@@ -10,9 +10,9 @@
 
                                                                 #
 
-        Copyright (C) 2005-2006 Louie Zarrella                  #
+        Copyright (C) 2005-2026 Louie Zarrella                  #
 
-        louiez@proedgenetworks.com                              #
+        jwaldo85@gmail.com                             #
 
                                                                 #
 

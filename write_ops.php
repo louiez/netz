@@ -4,7 +4,7 @@
         http://www.proedgenetworks.com/netz			#
 								#
 								#
-        Copyright (C) 2005-2006 Louie Zarrella			#
+        Copyright (C) 2005-2026 Louie Zarrella			#
 	louiez@proedgenetworks.com				#
 								#
         Released under the GNU General Public License		#

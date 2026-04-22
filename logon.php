@@ -1,12 +1,12 @@
 <?php
-session_start();
-ob_start();
-include_once("site-monitor.conf.php");
-
 // Secure session settings (must be before session_start())
 ini_set('session.use_only_cookies', 1);
 ini_set('session.cookie_httponly', 1);
 ini_set('session.cookie_secure', 1);
+
+session_start();
+ob_start();
+include_once("site-monitor.conf.php");
 
 $conn = new mysqli(NETZ_DB_SERVER, NETZ_DB_USERNAME, NETZ_DB_PASSWORD, NETZ_DATABASE);
 if ($conn->connect_error) {

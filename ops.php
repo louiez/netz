@@ -35,7 +35,7 @@ include ('get_time_zone.php');
    print_r($_SESSION);
    echo "</pre>";
  */
-$config = new ConfigMagik($basedir . "field_mapping.ini", true, true);
+//$config = new ConfigMagik($basedir . "field_mapping.ini", true, true);
 $db_class = new DB_Class();
 
 //<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

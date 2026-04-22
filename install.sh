@@ -65,23 +65,23 @@ prompt_yesno() {
 	local prompt="$2"
 	local default="$3"
 	local current="$4"
-	local ans=""
+	local reply=""
 
 	if [ "$AUTO" -eq 1 ]; then
-		ans="$current"
-		[ -z "$ans" ] && ans="$default"
+		reply="$current"
+		[ -z "$reply" ] && reply="$default"
 	else
 		echo -ne "$MAGENTA ${prompt} [${default}]: $AOFF "
-		read ans
-		[ -z "$ans" ] && ans="$default"
+		read reply
+		[ -z "$reply" ] && reply="$default"
 	fi
 
-	case "$ans" in
-		y|Y|yes|YES) ans="y" ;;
-		*) ans="n" ;;
+	case "$reply" in
+		y|Y|yes|YES) reply="y" ;;
+		*) reply="n" ;;
 	esac
 
-	eval "$varname=\"\$ans\""
+	eval "$varname=\"\$reply\""
 }
 
 # this script needs to run in it's directory... lets check

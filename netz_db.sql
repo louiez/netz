@@ -437,4 +437,132 @@ CREATE TABLE IF NOT EXISTS `foofoo` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-21 19:50:07
+-- Dump completed on 2026-04-21 21:36:09
+INSERT INTO `USERS` (`USERNAME`, `FULL_NAME`, `PASSWORD`, `ACCESSTYPE`, `ACCESSLEVEL`, `EMAIL`, `LAST_LOGIN_DATE`, `USER_GROUP`, `CREATE_DATE`, `FORCE_PASS_RESET`, `AGREEMENT_ACCEPTED`, `STYLE`) VALUES ('admin', 'Admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'Admin Full (10)', 10, '%ADMIN_USER%', '2006-10-21 21:53:40', '', '0000-00-00 00:00:00', 1, '2006-03-19 9:21:14', 'style/midnight-small.css:all');
+-- MariaDB dump 10.19  Distrib 10.11.3-MariaDB, for debian-linux-gnueabihf (armv7l)
+--
+-- Host: localhost    Database: NETz
+-- ------------------------------------------------------
+-- Server version	10.11.3-MariaDB-1+rpi1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `NAME_MAPING`
+--
+
+LOCK TABLES `NAME_MAPING` WRITE;
+/*!40000 ALTER TABLE `NAME_MAPING` DISABLE KEYS */;
+INSERT INTO `NAME_MAPING` VALUES
+('VIP_ALERT_OFFLINE','VIP_ALERT_OFFLINE',1,1,1),
+('SUPPORT_ALERT_ONLINE','Support Alert Online',1,1,1),
+('SUPPORT_ALERT_OFFLINE','Support Alert Offline',1,1,1),
+('VIP_ALERT_ONLINE','VIP_ALERT_ONLINE',1,1,1),
+('MONITOR_HTTP_PORT','MONITOR_HTTP_PORT',1,1,0),
+('MONITOR_HTTP_STATUS','MONITOR_HTTP_STATUS',1,1,0),
+('DATE_LAST_ALERT','Date of last Alert',1,1,0),
+('ALERT_SENT','Alert Sent Flag',1,1,0),
+('TOTAL_ALERTS_SENT','Total Alerts sent',1,1,0),
+('MONITOR_HTTP_CONTENT','MONITOR_HTTP_CONTENT',1,1,0),
+('MONITOR_HTTP_TIMEOUT','MONITOR_HTTP_TIMEOUT',1,1,0),
+('MONITOR_HTTP_IP_FIELD','MONITOR_HTTP_IP_FIELD',1,1,0),
+('MONITOR_HTTP_PAGE','MONITOR_HTTP_PAGE',1,1,0),
+('MONITOR_HTTP_ENABLE','MONITOR_HTTP_ENABLE',1,1,0),
+('MONITOR_IP_FIELD','MONITOR_IP_FIELD',1,1,0),
+('MONITOR_STATUS','MONITOR_STATUS',1,1,0),
+('SITE_ID','Device Name',1,1,1),
+('SITE_NAME','Site Name',1,1,1),
+('SITE_TYPE','SiteType',1,1,1),
+('GROUP_NAME','Group Name',1,1,1),
+('LAN_IP','LAN IP',1,1,1),
+('LAN_GATEWAY','LAN Gateway',1,1,1),
+('LAN_NETMASK','LAN Netmask',1,1,1),
+('REGION','Region',1,1,1),
+('FIELD_REP','Field Rep',1,1,1),
+('SERVICE_REQUEST_DATE','Service Request Date',1,1,1),
+('ORDER_DATE','Order Date',1,1,1),
+('ACTIVE_DATE','Active Date',1,1,1),
+('CLOSE_DATE','Close Date',1,1,1),
+('LAST_CHANGE_DATE','Last Change Date',1,1,0),
+('SITE_FAX_NUMBER','Site Fax Number',1,1,1),
+('SITE_PHONE_NUMBER','Site Phone Number',1,1,1),
+('GROUP_CONTACT','Group Contact',1,1,1),
+('GROUP_CONTACT_EMAIL','Group Contact Email',1,1,1),
+('GROUP_CONTACT_PHONE','Group Contact Phone',1,1,1),
+('SITE_CONTACT','Site Contact',1,1,1),
+('SITE_CONTACT_PHONE','Site Contact Phone',1,1,1),
+('SITE_HOURS','Site Hours',1,1,1),
+('LATITUDE','LATITUDE',1,1,0),
+('LONGITUDE','LONGITUDE',1,1,0),
+('ADDRESS','Address',1,1,1),
+('CITY','City',1,1,1),
+('ST','ST',1,1,1),
+('ZIP','ZIP',1,1,1),
+('SITE_IMAGE_MAP','Site Image Diagram',1,1,1),
+('GROUP_IMAGE_MAP','Group Image Map',1,1,1),
+('SERVICE_CODE','Service Code',1,1,1),
+('SERVICE_TYPE','Service Type',1,1,1),
+('ORDER_FLAG','Order Flag',1,1,1),
+('ORDER_BY','Ordered By',1,1,1),
+('NOTES_1','Public Notes',1,1,1),
+('NOTES_2','Admin Notes',1,1,1),
+('SUPPORT_CENTER','Support Center',1,1,1),
+('TELCO_PROVIDER','TELCO_PROVIDER',1,1,1),
+('TELCO_SUPPORT','TELCO_SUPPORT',1,1,1),
+('T1_CIRCUIT','AP SSID',1,1,1),
+('LEC_CIRCUIT','AP Password',1,1,1),
+('CPE_MODEM_MODEL','CPE Model',1,1,1),
+('CPE_MODEM_FIRMWARE_REV','CPE Firmware Revision',1,1,1),
+('CPE_MODEM_SERIAL_NUM','CPE Serial Number',1,1,1),
+('CPE_ASSET_NUM','CPE Asset Number',1,1,1),
+('CPE_INSERVICE_DATE','CPE In Service date',1,1,1),
+('CPE_ACCESS_USERNAME','Admin Access Username',1,1,1),
+('CPE_ACCESS_PASSWORD','Admin Access Password',1,1,1),
+('ROUTER_MODEL','Model',1,1,1),
+('ROUTER_FIRMWARE_REV','Software Ver',1,1,1),
+('ROUTER_SERIAL_NUM','serial Number',1,1,1),
+('ROUTER_ASSET_NUM','Asset Number',1,1,1),
+('ROUTER_INSERVICE_DATE','in-Service date',1,1,1),
+('ROUTER_ACCESS_USERNAME','Access Username',1,1,1),
+('ROUTER_ACCESS_PASSWORD','Access Password',1,1,1),
+('DLCI_ID','DLCI ID',1,1,1),
+('DSL_LINE_NUMBER','WIFI Client SSID',1,1,1),
+('DSL_CIRCUIT_NUMBER','WIFI Client Password',1,1,1),
+('INET_PROVIDER','Inet Provider',1,1,1),
+('INET_PROVIDER_SUPPORT_NUMBER','ISP Support Number',1,1,1),
+('INET_PROVIDER_WEB','ISP Web Site',1,1,1),
+('WAN_IP_RANGE','WAN IP Range',1,1,1),
+('WAN_IP','Wan IP',1,1,1),
+('WAN_NETMASK','WAN Netmask',1,1,1),
+('WAN_GATEWAY','WAN Gateway',1,1,1),
+('WAN_AUTHENTICATION_TYPE','MAC Address',1,1,1),
+('DSL_USERNAME','DSL Username',1,1,1),
+('DSL_PASSWORD','DSL Password',1,1,1),
+('DIAL_UP_NUMBER','Dial Up Number',1,1,1),
+('TIME_ZONE','Time Zone',1,1,0),
+('CPE_MODEM_FIRMWARE_REV','CPE Firmware Revision',1,1,1),
+('MONITOR_ENABLE','MONITOR_ENABLE',1,1,0),
+('MONITOR_TIMEOUT','MONITOR_TIMEOUT',1,1,0),
+('LAST_CHANGE_BY','Last Change By',1,1,0);
+/*!40000 ALTER TABLE `NAME_MAPING` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-04-21 21:36:09
+INSERT INTO ALERTEMAILS VALUES ('Atlanta','support1@nowhere.com','support','','770-555-1212','');
+INSERT INTO ALERTEMAILS VALUES ('Dallas','support2@nowhere.com','support','','817-555-1212','');

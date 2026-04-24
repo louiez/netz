@@ -8,11 +8,11 @@ session_start();
 ob_start();
 include_once("site-monitor.conf.php");
 
-$conn = new mysqli(NETZ_DB_SERVER, NETZ_DB_USERNAME, NETZ_DB_PASSWORD, NETZ_DATABASE);
-if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
-}
+$conn = mysqli_connect(NETZ_DB_SERVER, NETZ_DB_USERNAME, NETZ_DB_PASSWORD, NETZ_DATABASE);
 
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
 $max_session_time = 36000; // 10 hours
 
 // Get user input safely
@@ -21,12 +21,17 @@ $submittedpass = isset($_POST['pass']) ? trim($_POST['pass']) : '';
 
 // Check if username and password are provided
 if (!empty($submitteduser) && !empty($submittedpass)) {
-    $stmt = $conn->prepare("SELECT * FROM USERS WHERE USERNAME = ?");
-    $stmt->bind_param("s", $submitteduser);
-    $stmt->execute();
-    $result = $stmt->get_result();
+	$safeuser = mysqli_real_escape_string($conn, $submitteduser);
 
-    if ($row = $result->fetch_assoc()) {
+	$sql = "SELECT * FROM USERS WHERE USERNAME = '" . $safeuser . "'";
+	$result = mysqli_query($conn, $sql);
+
+	if (!$result) {
+	    die("User lookup failed: " . mysqli_error($conn));
+	}
+
+	if ($row = mysqli_fetch_assoc($result)) {
+
         // Verify password with password_hash()
         if (password_verify($submittedpass, $row['PASSWORD'])) {
             session_regenerate_id(true); // Prevent session fixation
@@ -36,15 +41,15 @@ if (!empty($submitteduser) && !empty($submittedpass)) {
             $_SESSION['accesslevel'] = $row['ACCESSLEVEL'];
             $_SESSION['session_expires'] = time() + $max_session_time;
             $_SESSION['name'] = !empty($row['FULL_NAME']) ? $row['FULL_NAME'] : $row['USERNAME'];
-  // **PROCESS USER STYLE LIKE THE ORIGINAL CODE**
-// Set safe defaults first
-$_SESSION['style']  = "style/ultramarine.css";
-$_SESSION['support'] = "all";
-$_SESSION['menu1'] = "block";
-$_SESSION['menu2'] = "block";
-$_SESSION['menu3'] = "block";
-$_SESSION['menu4'] = "block";
-$_SESSION['menu5'] = "block";
+	  // **PROCESS USER STYLE LIKE THE ORIGINAL CODE**
+	// Set safe defaults first
+	$_SESSION['style']  = "style/ultramarine.css";
+	$_SESSION['support'] = "all";
+	$_SESSION['menu1'] = "block";
+	$_SESSION['menu2'] = "block";
+	$_SESSION['menu3'] = "block";
+	$_SESSION['menu4'] = "block";
+	$_SESSION['menu5'] = "block";
 
 // Now override from DB if STYLE exists
 if (!empty($row['STYLE'])) {

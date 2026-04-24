@@ -45,6 +45,13 @@ tfoot, thead	{
 	text-transform:	none;
 	font-family:	helvetica,arial,sans-serif;
 	}		
+.sidebar {
+    display: none;
+}
+
+.sidebar.open {
+    display: block;
+}
 .tdlight	{
 	background-color: #333 ;
 	padding: 2px;

@@ -24,7 +24,7 @@ if (!$conn) {
 //mysqli_select_db(NETZ_DATABASE);
 
 // Load variables with posted data
-$un=addslashes($_SESSION['user']);
+$un = mysqli_real_escape_string($conn, $_SESSION['user']);
 $theme=trim($_POST['txttheme']);
 $support= isset($_GET['support']) ? $_GET['support'] : "";
 // format the date for mysqli

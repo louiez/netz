@@ -37,8 +37,6 @@ if (!empty($submitteduser) && !empty($submittedpass)) {
             $_SESSION['session_expires'] = time() + $max_session_time;
             $_SESSION['name'] = !empty($row['FULL_NAME']) ? $row['FULL_NAME'] : $row['USERNAME'];
   // **PROCESS USER STYLE LIKE THE ORIGINAL CODE**
-    if (!empty($row['STYLE'])) {
-        $options = explode(":", $row['STYLE']); // Split the stored style options
 // Set safe defaults first
 $_SESSION['style']  = "style/ultramarine.css";
 $_SESSION['support'] = "all";
@@ -61,10 +59,6 @@ if (!empty($row['STYLE'])) {
     if (isset($options[5]) && $options[5] != "") $_SESSION['menu4'] = $options[5];
     if (isset($options[6]) && $options[6] != "") $_SESSION['menu5'] = $options[6];
 }
-    } else {
-        // Default style if nothing is stored in the database
-        $_SESSION['style'] = "style/ultramarine.css";
-    }
 
             // Redirect to main page
             header("Location: main.php");

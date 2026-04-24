@@ -202,3 +202,64 @@ body	{
 }
 
 
+   /* Sidebar style */
+    .sidebar {
+      width: 250px; /* Sidebar width */
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden off-screen */
+      height: 100%;
+      background-color: #333;
+      color: white;
+      transition: left 0.3s ease;
+      z-index: 9999; /* Ensure sidebar is on top */
+    }
+
+    /* Sidebar when open */
+    .sidebar.open {
+      left: 0; /* Sidebar slides in from the left */
+    }
+
+    /* Menu content */
+    .menu-content {
+      padding: 20px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 0; /* No space for sidebar by default */
+      transition: margin-left 0.3s ease;
+    }
+
+    .sidebar.open + .main-content {
+      margin-left: 250px; /* Add space for the sidebar */
+    }
+
+    /* Button style */
+    .toggle-button {
+      position: absolute;
+      top: 120px;
+      left: 262px;
+      font-size: 14px;          /* Smaller font size */
+      width: 100px;              /* Set width for a more compact button */
+      height: 30px;            /* Set height for the vertical button */
+      background-color: #333;
+      color: white;
+      border: none;
+      text-align: center;
+      padding: 5px;
+      cursor: pointer;
+      z-index: 10000;           /* Ensure it's on top */
+      transform: rotate(-90deg); /* Rotate the text vertically */
+      transform-origin: left center; /* Fix the rotation origin to the left edge */
+    }
+
+
+

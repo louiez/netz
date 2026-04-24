@@ -17,6 +17,14 @@ error_reporting(E_ALL);
 include_once('auth.php');
 include_once("site-monitor.conf.php");
 
+define('STYLESHEET', 0);
+define('SUPPORT', 1);
+define('MENU1', 2);
+define('MENU2', 3);
+define('MENU3', 4);
+define('MENU4', 5);
+define('MENU5', 6);
+
 $conn = mysqli_connect(NETZ_DB_SERVER, NETZ_DB_USERNAME, NETZ_DB_PASSWORD,NETZ_DATABASE);
 if (!$conn) {
    die('Could not connect: ' . mysqli_error());

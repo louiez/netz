@@ -249,6 +249,11 @@ define("SITE_ADMIN_EMAIL","$adminemail");                  // Site admin email
 
 define("STYLESHEET",0);
 define("SUPPORT",1);
+define("MENU1",2);
+define("MENU2",3);
+define("MENU3",4);
+define("MENU4",5);
+define("MENU5",6);
 ?>
 EOF
 

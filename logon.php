@@ -39,17 +39,28 @@ if (!empty($submitteduser) && !empty($submittedpass)) {
   // **PROCESS USER STYLE LIKE THE ORIGINAL CODE**
     if (!empty($row['STYLE'])) {
         $options = explode(":", $row['STYLE']); // Split the stored style options
+// Set safe defaults first
+$_SESSION['style']  = "style/ultramarine.css";
+$_SESSION['support'] = "all";
+$_SESSION['menu1'] = "block";
+$_SESSION['menu2'] = "block";
+$_SESSION['menu3'] = "block";
+$_SESSION['menu4'] = "block";
+$_SESSION['menu5'] = "block";
 
-        // Assign values based on the parsed style options
-        $_SESSION['style'] = isset($options[STYLESHEET]) ? $options[STYLESHEET] : "style/ultramarine.css";
-        $_SESSION['support'] = isset($options[SUPPORT]) ? $options[SUPPORT] : "";
-        
-        // Assign menu display settings
-        $_SESSION['menu1'] = isset($options[MENU1]) ? $options[MENU1] : "block";
-        $_SESSION['menu2'] = isset($options[MENU2]) ? $options[MENU2] : "block";
-        $_SESSION['menu3'] = isset($options[MENU3]) ? $options[MENU3] : "block";
-        $_SESSION['menu4'] = isset($options[MENU4]) ? $options[MENU4] : "block";
-        $_SESSION['menu5'] = isset($options[MENU5]) ? $options[MENU5] : "block";
+// Now override from DB if STYLE exists
+if (!empty($row['STYLE'])) {
+    $options = explode(":", $row['STYLE']);
+
+    if (isset($options[0]) && $options[0] != "") $_SESSION['style']  = $options[0];
+    if (isset($options[1]) && $options[1] != "") $_SESSION['support'] = $options[1];
+
+    if (isset($options[2]) && $options[2] != "") $_SESSION['menu1'] = $options[2];
+    if (isset($options[3]) && $options[3] != "") $_SESSION['menu2'] = $options[3];
+    if (isset($options[4]) && $options[4] != "") $_SESSION['menu3'] = $options[4];
+    if (isset($options[5]) && $options[5] != "") $_SESSION['menu4'] = $options[5];
+    if (isset($options[6]) && $options[6] != "") $_SESSION['menu5'] = $options[6];
+}
     } else {
         // Default style if nothing is stored in the database
         $_SESSION['style'] = "style/ultramarine.css";

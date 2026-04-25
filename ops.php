@@ -362,7 +362,7 @@ $num = query_num_rows($rows);
 //$conn = mysqli_connect(NETZ_DB_SERVER,  NETZ_DB_USERNAME,  NETZ_DB_PASSWORD,NETZ_DATABASE);
 //$result=mysqli_query($conn,$SQL);
 //$num=mysqli_num_rows($result);
-echo "X".$num;
+echo "Count: ".$num;
 // if it finds one record fron query or a new record from the "WHERE 1=0"
 // This "if" statement closing bracket is further
 if ($num == 1 || $num == 0) {

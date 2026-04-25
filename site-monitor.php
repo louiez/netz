@@ -391,22 +391,44 @@ echo '</tr></thead>';
 //************************
 //	Create Query	//
 //************************
-if ($supportcntr=="" || $supportcntr== "all"){ 
-	$SQL="SELECT * FROM SITEDATA JOIN MONITORINFO USING(SITE_ID) WHERE MONITOR_ENABLE='1'";
+if ($supportcntr=="" || $supportcntr== "all"){
+        $SQL="
+        SELECT SITEDATA.*, MONITORINFO.*,
+               COUNT(ALERTLOGS.SITE_ID) AS total_alerts
+        FROM SITEDATA
+        JOIN MONITORINFO USING(SITE_ID)
+        LEFT JOIN ALERTLOGS 
+            ON ALERTLOGS.SITE_ID = SITEDATA.SITE_ID
+            AND ALERTLOGS.CHECK_DATE_TIME >= DATE_SUB(NOW(), INTERVAL 5 DAY)
+        WHERE MONITOR_ENABLE='1'
+        GROUP BY SITEDATA.SITE_ID
+        HAVING total_alerts > 5
+        ";
 }else{
-	$SQL="SELECT * FROM SITEDATA JOIN MONITORINFO USING(SITE_ID) WHERE MONITOR_ENABLE='1' AND SUPPORT_CENTER = '".$supportcntr."'";
+        $SQL="
+        SELECT SITEDATA.*, MONITORINFO.*,
+               COUNT(ALERTLOGS.SITE_ID) AS total_alerts
+        FROM SITEDATA
+        JOIN MONITORINFO USING(SITE_ID)
+        LEFT JOIN ALERTLOGS 
+            ON ALERTLOGS.SITE_ID = SITEDATA.SITE_ID
+            AND ALERTLOGS.CHECK_DATE_TIME >= DATE_SUB(NOW(), INTERVAL 5 DAY)
+        WHERE MONITOR_ENABLE='1'
+        AND SUPPORT_CENTER = '".$supportcntr."'
+        GROUP BY SITEDATA.SITE_ID
+        HAVING total_alerts > 5
+        ";
 }
-$alertscls= new SiteLog();
-$result=mysqli_query($conn,$SQL);
-mysqli_query($conn,"COMMIT");
-if (mysqli_num_rows($result)){echo "<tbody>";}
-while ($row = mysqli_fetch_assoc($result)) {
+	$result=mysqli_query($conn,$SQL);
+	mysqli_query($conn,"COMMIT");
+	if (mysqli_num_rows($result)){echo "<tbody>";}
+	while ($row = mysqli_fetch_assoc($result)) {
 	//****************************************
 	//      Get total alerts for site	//
 	//****************************************
-        $total_alerts=$alertscls->get_count($row["SITE_ID"],5);
-	$total5day=$alertscls->get_count($row["SITE_ID"],3);
-	$total3day=$alertscls->get_count($row["SITE_ID"],0);
+	$total_alerts = $row['total_alerts'];
+	$total5day = "";
+	$total3day = "";
 	// ****  Create Site link  ****
         if ($total_alerts > 5 ){
 		//****************************|

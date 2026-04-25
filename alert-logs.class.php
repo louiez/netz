@@ -20,11 +20,14 @@ class SiteLog
                 //               |    |    | month---|     day--|days back-|    year-|
                 $back  = mktime("0", "0", "0", date("m"), date("d")-$daysback, date("Y"));
                 $back  = date("Y-m-d G:i:s",$back);
-//echo $back;
-                $this->query="SELECT * FROM ALERTLOGS WHERE ";
-                $this->query .= "SITE_ID = '".$site."' AND CHECK_DATE_TIME >= '".$back."' ORDER BY CHECK_DATE_TIME DESC";
-                $this->result=mysqli_query($conn,$this->query);
-                $this->count = mysqli_num_rows($this->result);
+		//echo $back;
+		$this->query = "SELECT COUNT(*) AS cnt FROM ALERTLOGS WHERE ";
+		$this->query .= "SITE_ID = '".$site."' AND CHECK_DATE_TIME >= '".$back."'";
+
+		$this->result = mysqli_query($conn, $this->query);
+
+		$row = mysqli_fetch_assoc($this->result);
+		$this->count = $row['cnt'];
                 mysqli_close($conn);
                 return $this->count;
         }

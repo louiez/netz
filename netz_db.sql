@@ -438,7 +438,7 @@ CREATE TABLE IF NOT EXISTS `foofoo` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2026-04-21 21:36:09
-INSERT INTO `USERS` (`USERNAME`, `FULL_NAME`, `PASSWORD`, `ACCESSTYPE`, `ACCESSLEVEL`, `EMAIL`, `LAST_LOGIN_DATE`, `USER_GROUP`, `CREATE_DATE`, `FORCE_PASS_RESET`, `AGREEMENT_ACCEPTED`, `STYLE`) VALUES ('admin', 'Admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'Admin Full (10)', 10, '%ADMIN_USER%', '2006-10-21 21:53:40', '', '0000-00-00 00:00:00', 1, '2006-03-19 9:21:14', 'style/midnight-small.css:all');
+INSERT INTO `USERS` (`USERNAME`, `FULL_NAME`, `PASSWORD`, `ACCESSTYPE`, `ACCESSLEVEL`, `EMAIL`, `LAST_LOGIN_DATE`, `USER_GROUP`, `CREATE_DATE`, `FORCE_PASS_RESET`, `AGREEMENT_ACCEPTED`, `STYLE`) VALUES ('admin', 'Admin', '$2y$10$dm1YlkoODpOJupmTpHgmrOLJ8zVEALzRVDHHSASpnm5aNonx97qg2', 'Admin Full (10)', 10, '%ADMIN_USER%', '2006-10-21 21:53:40', '', '0000-00-00 00:00:00', 1, '2006-03-19 9:21:14', 'style/midnight-small.css:all');
 -- MariaDB dump 10.19  Distrib 10.11.3-MariaDB, for debian-linux-gnueabihf (armv7l)
 --
 -- Host: localhost    Database: NETz

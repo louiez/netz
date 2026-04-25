@@ -89,17 +89,33 @@ function show_store(url)
 </head>
 
 <body>
-<script type="text/javascript"  src="menulz.js"> </script>
+<div class="sidebar">
+<button class="toggle-button" onclick="toggleSidebar()">☰ Menu</button>
+  <div class="menu-content">
+    <ul>
+      <li><a href="main.php">NETz Home</a></li>
+      <li><a href="support.php">Support Dashboard</a></li>
+      <li><a href="site-monitor.php">Down Sites</a></li>
+        <li><a href="querycreate.php">Query Builder</a></li>
+        <li><a href="useradmin.php">User Admin</a></li>
+        <li><a href="netz-config.php">NETz Config</a></li>
+        <li><a href="tools/tools.php">NETz Tools</a></li>
+        <li><a href="tools/mac.php">MAC Address Search</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- <script type="text/javascript"  src="menulz.js"> </script> -->
 <?php
 // Adds menu items to side menu
- if ($_SESSION['accesslevel'] >= 9){
+/* if ($_SESSION['accesslevel'] >= 9){
         echo '<script type="text/javascript"  src="menu-data-rwa.js"> </script>';
  }elseif($_SESSION['accesslevel'] >= 4){
         echo '<script type="text/javascript"  src="menu-data-rw.js"> </script>';
 }else{
         echo '<script type="text/javascript"  src="menu-data-ro.js"> </script>';
 }
-
+*/
 
 // Get support center filter choice
 if (isset($_POST['support'])){ $supportcntr=trim($_POST['support']); }else{$supportcntr="";}

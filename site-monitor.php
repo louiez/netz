@@ -87,7 +87,12 @@ function show_store(url)
 }
 </script>
 </head>
-
+<script>
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('open');
+}
+</script>
 <body>
 <div class="sidebar">
 <button class="toggle-button" onclick="toggleSidebar()">☰ Menu</button>
